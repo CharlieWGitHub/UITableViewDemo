@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-@class UserModel;
+#import "UserModel.h"
+//@class UserModel;
 //@class JTSearchModel;
 @interface JTUserInfoTool : NSObject
 

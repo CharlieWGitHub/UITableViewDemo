@@ -20,6 +20,9 @@
 }
 - (IBAction)beginExit:(id)sender {
     
+    
+    [[JTUserInfoTool shareInstance]removeTokenFromSanbox];
+    
     UIViewController * mainTabBar = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"loginVC"];
     SDJTKEYWINDOW.rootViewController = mainTabBar;
     
