@@ -1,0 +1,22 @@
+//
+//  Prefix.pch
+//  UITableViewDemo
+//
+//  Created by 王成龙 on 2018/11/21.
+//  Copyright © 2018 CL. All rights reserved.
+//
+
+#ifndef Prefix_pch
+#define Prefix_pch
+
+#import "APIConfig.h"
+#import "CustomPublicHUD.h"
+#import "PublicConfig.h"
+#import "NSString+Extension.h"
+#import <MJExtension.h>
+#import <MBProgressHUD.h>
+#import "MBProgressHUD+Extension.h"
+#import "NSDictionary+Extension.h"
+#import "JTUserInfoTool.h"
+
+#endif /* Prefix_pch */
