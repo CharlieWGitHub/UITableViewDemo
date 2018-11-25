@@ -7,33 +7,79 @@
 //
 
 #import "ViewController.h"
+#import "JTJGHandle.h"
+#import "DynamicCellTableViewCell.h"
+#import "ActivityCellTableViewCell.h"
+#import "HeadView.h"
 
+static NSString * const ACTIVITYCELL = @"activityCell";//活动
+static NSString * const DYNAMICCELL = @"dynamicCell";//动态
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic ,strong)UITableView * myTab;
+@property (nonatomic, strong)UITableView * myTab;
+@property (nonatomic, assign)NSInteger pageNum;
+@property (nonatomic, strong)HeadView * headView;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self myTable];
+     self.pageNum = 0;
+//    [self loadData];
+    [self.view addSubview:self.myTab];
+
+
+    self.headView = [self.headView initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 300)];
+    [self.headView headViewWithData:@{}];
+    _myTab.tableHeaderView = self.headView;
 
     // Do any additional setup after loading the view, typically from a nib.
 }
-- (void)myTable{
- 
-        _myTab = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+- (void)loadData{
+
+    JTParamsBaseModel *params = [[JTParamsBaseModel alloc] init];
+    params.size = SizeNum;
+    params.page = [NSString stringWithFormat:@"%ld",(long)self.pageNum];
+    params.sort = @"tx_tm";
+    params.id = [JTUserInfoTool shareInstance].data.userId;
+//    if (self.titleStr.length>0) {
+//        params.title = self.titleStr;
+//    }
+//    if (self.retrieval.length>0) {
+//        params.retrieval = self.retrieval;
+//    }
+    [JTJGHandle loadOrgAgencyCircleParams:params success:^(CellModel * _Nonnull allDataModel) {
+        
+    } failure:^(NSError * _Nonnull error) {
+        
+    }];
+    
+}
+//- (void)myTable{
+//
+//        _myTab = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+//        _myTab.delegate = self;
+//        _myTab.dataSource = self;
+
+//        [self.view addSubview:_myTab];
+//
+//}
+-(UITableView *)myTab{
+    if (!_myTab) {
+        _myTab = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
         _myTab.delegate = self;
         _myTab.dataSource = self;
-        _myTab.estimatedRowHeight = 0;
-        _myTab.estimatedSectionFooterHeight = 0;
-        _myTab.estimatedSectionHeaderHeight = 0;
-        [self.view addSubview:_myTab];
-
+                _myTab.estimatedRowHeight = 0;
+                _myTab.estimatedSectionFooterHeight = 0;
+                _myTab.estimatedSectionHeaderHeight = 0;
+//        [_myTab registerClass:[DynamicCellTableViewCell class] forCellReuseIdentifier:DYNAMICCELL];
+//        [_myTab registerClass:[ActivityCellTableViewCell class] forCellReuseIdentifier:ACTIVITYCELL];
+    }
+    return _myTab;
 }
-
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    NSLog(@"cellForSec=%ld cellRows=%ld",(long)indexPath.section,(long)indexPath.row);
+//    NSLog(@"cellForSec=%ld cellRows=%ld",(long)indexPath.section,(long)indexPath.row);
 
     static NSString * iden = @"iden";
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:iden];
@@ -45,15 +91,15 @@
     return cell;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    NSLog(@"**********************");
+//    NSLog(@"**********************");
     return 3;
 }
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"______________________");
+//    NSLog(@"______________________");
     return 5;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"heightForSec=%ld ForRows=%ld",(long)indexPath.section,(long)indexPath.row);
+//    NSLog(@"heightForSec=%ld ForRows=%ld",(long)indexPath.section,(long)indexPath.row);
     if (indexPath.section ==0) {
         return 70;
     }else if (indexPath.section ==1){
@@ -62,7 +108,7 @@
     return 44;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"您选择的是=第%ld组 第%ld行",(long)indexPath.section,(long)indexPath.row);
+//    NSLog(@"您选择的是=第%ld组 第%ld行",(long)indexPath.section,(long)indexPath.row);
 //刷新整个section
     //    NSIndexSet *set = [[NSIndexSet alloc]initWithIndex:indexPath.section];
 //    [self.myTab reloadSections:set withRowAnimation:UITableViewRowAnimationFade];

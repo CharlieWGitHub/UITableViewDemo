@@ -59,7 +59,7 @@ MJCodingImplementation
 - (void)removeTokenFromSanbox
 {
     _token        = nil;
-    _defaultSelectIndex   = nil;
+//    _defaultSelectIndex   = nil;
     _isFist = nil;
     _data = nil;
     [self saveUserInfoToSanbox];

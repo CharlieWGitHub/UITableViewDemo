@@ -18,5 +18,7 @@
 #import "MBProgressHUD+Extension.h"
 #import "NSDictionary+Extension.h"
 #import "JTUserInfoTool.h"
+#import "JTParamsBaseModel.h"
+#import "UIConfig.h"
 
 #endif /* Prefix_pch */

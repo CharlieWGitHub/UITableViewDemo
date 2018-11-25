@@ -37,6 +37,10 @@
 		E9BEA84D21A5A41600E8F827 /* NSDictionary+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BEA84C21A5A41600E8F827 /* NSDictionary+Extension.m */; };
 		E9BEA85021A5A44A00E8F827 /* JTUserInfoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BEA84E21A5A44A00E8F827 /* JTUserInfoTool.m */; };
 		E9BEA85421A5A4CB00E8F827 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BEA85321A5A4CB00E8F827 /* UserModel.m */; };
+		E9F79E7521AAAB9B007F52F7 /* JTJGHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F79E7421AAAB9B007F52F7 /* JTJGHandle.m */; };
+		E9F79E7821AAB3EB007F52F7 /* ActivityCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F79E7721AAB3EB007F52F7 /* ActivityCellTableViewCell.m */; };
+		E9F79E7B21AAB401007F52F7 /* DynamicCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F79E7A21AAB401007F52F7 /* DynamicCellTableViewCell.m */; };
+		E9F79E7E21AAB588007F52F7 /* HeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F79E7D21AAB588007F52F7 /* HeadView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +126,14 @@
 		E9BEA84F21A5A44A00E8F827 /* JTUserInfoTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTUserInfoTool.h; sourceTree = "<group>"; };
 		E9BEA85221A5A4CA00E8F827 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		E9BEA85321A5A4CB00E8F827 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		E9F79E7321AAAB9B007F52F7 /* JTJGHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTJGHandle.h; sourceTree = "<group>"; };
+		E9F79E7421AAAB9B007F52F7 /* JTJGHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTJGHandle.m; sourceTree = "<group>"; };
+		E9F79E7621AAB3EB007F52F7 /* ActivityCellTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActivityCellTableViewCell.h; sourceTree = "<group>"; };
+		E9F79E7721AAB3EB007F52F7 /* ActivityCellTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActivityCellTableViewCell.m; sourceTree = "<group>"; };
+		E9F79E7921AAB401007F52F7 /* DynamicCellTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicCellTableViewCell.h; sourceTree = "<group>"; };
+		E9F79E7A21AAB401007F52F7 /* DynamicCellTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicCellTableViewCell.m; sourceTree = "<group>"; };
+		E9F79E7C21AAB588007F52F7 /* HeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeadView.h; sourceTree = "<group>"; };
+		E9F79E7D21AAB588007F52F7 /* HeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeadView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,12 +287,20 @@
 			children = (
 				E9326D4D219BBA7300C547FD /* ViewController.h */,
 				E9326D4E219BBA7300C547FD /* ViewController.m */,
+				E9F79E7C21AAB588007F52F7 /* HeadView.h */,
+				E9F79E7D21AAB588007F52F7 /* HeadView.m */,
+				E9F79E7621AAB3EB007F52F7 /* ActivityCellTableViewCell.h */,
+				E9F79E7721AAB3EB007F52F7 /* ActivityCellTableViewCell.m */,
+				E9F79E7921AAB401007F52F7 /* DynamicCellTableViewCell.h */,
+				E9F79E7A21AAB401007F52F7 /* DynamicCellTableViewCell.m */,
 				E93CA984219EBC9C00A199BE /* model.h */,
 				E93CA985219EBC9C00A199BE /* model.m */,
 				E93CA987219EBCB500A199BE /* MyTableViewCell.h */,
 				E93CA988219EBCB500A199BE /* MyTableViewCell.m */,
 				E93CA98A219EFEE900A199BE /* CellModel.h */,
 				E93CA98B219EFEE900A199BE /* CellModel.m */,
+				E9F79E7321AAAB9B007F52F7 /* JTJGHandle.h */,
+				E9F79E7421AAAB9B007F52F7 /* JTJGHandle.m */,
 			);
 			path = MVC;
 			sourceTree = "<group>";
@@ -604,15 +624,19 @@
 			files = (
 				E9613B0D21A7F624006EAC81 /* JTParamsBaseModel.m in Sources */,
 				E94ED62A21A4EC9C00E93485 /* HttpRequestTool.m in Sources */,
+				E9F79E7E21AAB588007F52F7 /* HeadView.m in Sources */,
+				E9F79E7B21AAB401007F52F7 /* DynamicCellTableViewCell.m in Sources */,
 				E9326D4F219BBA7300C547FD /* ViewController.m in Sources */,
 				E9BEA84D21A5A41600E8F827 /* NSDictionary+Extension.m in Sources */,
 				E9BEA84121A59AF000E8F827 /* Login.m in Sources */,
 				E94ED62921A4EC9C00E93485 /* ReachabilityNetWorkUtils.m in Sources */,
+				E9F79E7821AAB3EB007F52F7 /* ActivityCellTableViewCell.m in Sources */,
 				E98FB0B621A4554B0083E500 /* RACViewController.m in Sources */,
 				E9326D5A219BBA7400C547FD /* main.m in Sources */,
 				E9326D4C219BBA7300C547FD /* AppDelegate.m in Sources */,
 				E9BEA85421A5A4CB00E8F827 /* UserModel.m in Sources */,
 				E93CA986219EBC9C00A199BE /* model.m in Sources */,
+				E9F79E7521AAAB9B007F52F7 /* JTJGHandle.m in Sources */,
 				E98FB0B321A4553F0083E500 /* MVVMViewController.m in Sources */,
 				E93CA989219EBCB500A199BE /* MyTableViewCell.m in Sources */,
 				E93CA98C219EFEE900A199BE /* CellModel.m in Sources */,
