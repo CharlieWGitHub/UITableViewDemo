@@ -46,4 +46,14 @@
 //#define SDJTSystemFontOfSize(FONTSIZE)     [UIFont systemFontOfSize:FONTSIZE]
 #define SDJTSystemFontOfSize(FONTSIZE)     [UIFont systemFontOfMutableSize:FONTSIZE]
 
+
+
+//rgb颜色转换（16进制->10进制）
+#define SDJTAlphaColorFromRGB(s,a)      [UIColor colorWithRed:(((s & 0xFF0000) >> 16))/255.0 green:(((s &0xFF00) >>8))/255.0 blue:((s &0xFF))/255.0 alpha:a]
+#define SDJTColorFromRGB(s)             SDJTAlphaColorFromRGB(s,1.0)
+
+//机构圈上部分的黑背景颜色
+#define SDJTBgColorFF3A3A              SDJTColorFromRGB(0x3A3A3A)//背景色
+
+
 #endif /* UIConfig_h */

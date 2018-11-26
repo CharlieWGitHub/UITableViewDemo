@@ -29,13 +29,12 @@ static NSString * const DYNAMICCELL = @"dynamicCell";//动态
 //    [self loadData];
     [self.view addSubview:self.myTab];
 
-
-    self.headView = [self.headView initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 300)];
     [self.headView headViewWithData:@{}];
     _myTab.tableHeaderView = self.headView;
 
     // Do any additional setup after loading the view, typically from a nib.
 }
+
 - (void)loadData{
 
     JTParamsBaseModel *params = [[JTParamsBaseModel alloc] init];
@@ -65,6 +64,12 @@ static NSString * const DYNAMICCELL = @"dynamicCell";//动态
 //        [self.view addSubview:_myTab];
 //
 //}
+- (HeadView *)headView{
+    if (!_headView) {
+        _headView = [[HeadView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 300)];
+    }
+    return _headView;
+}
 -(UITableView *)myTab{
     if (!_myTab) {
         _myTab = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];

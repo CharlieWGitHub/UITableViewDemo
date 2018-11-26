@@ -9,8 +9,8 @@
 #ifndef APIConfig_h
 #define APIConfig_h
 
-#define H5IP @"http://47.92.54.37:9090/oms/html5/notes"//张学鹏
-#define IP   @"http://47.92.54.37:9090/oms"//张学鹏
+#define H5IP @"http://39.98.72.11:9090/oms/html5/notes"//张学鹏
+#define IP   @"http://39.98.72.11:9090/oms/"//张学鹏
 
 #define URL_ID  @"{id}"
 

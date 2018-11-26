@@ -21,17 +21,17 @@
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    [[JTUserInfoTool shareInstance] loadUserInfoFromSanbox];
+//    [[JTUserInfoTool shareInstance] loadUserInfoFromSanbox];
     
-    NSString *lumobileStr = [JTUserInfoTool shareInstance].data.lumobile;
-    if ([JTUserInfoTool shareInstance].isLogin && lumobileStr.length>0) {
+//    NSString *lumobileStr = [JTUserInfoTool shareInstance].data.lumobile;
+//    if ([JTUserInfoTool shareInstance].isLogin && lumobileStr.length>0) {
         UITabBarController * mainTabBar = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"mainTabBar"];
         self.window.rootViewController = mainTabBar;
-    }else{
-        
-        UITabBarController * mainTabBar = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"loginVC"];
-        self.window.rootViewController = mainTabBar;
-    }
+//    }else{
+//        
+//        UITabBarController * mainTabBar = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"loginVC"];
+//        self.window.rootViewController = mainTabBar;
+//    }
     
     [self.window makeKeyAndVisible];
 

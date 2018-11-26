@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HeadView : UIView
 @property (nonatomic,strong) UIView * top;
+@property (nonatomic ,strong)UIImageView * headImg;
+@property (nonatomic ,strong)UILabel * nameLab;
+
 - (void)headViewWithData:(id)data;
 
 @end
