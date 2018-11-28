@@ -52,12 +52,33 @@
     WEAK_SELF;
     [self.headImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(weakSelf).offset(16);
-        make.top.equalTo(weakSelf).offset(16);
+        make.top.equalTo(weakSelf).offset(26);
         make.size.mas_equalTo(CGSizeMake(50, 50));
     }];
-    [self.contentView addSubview:_bankName];
-    [self.contentView addSubview:_publishTime];
-    [self.contentView addSubview:_activityImage];
+    
+    [self.contentView addSubview:self.bankName];
+    [self.bankName mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf).offset(16+50+20);
+        make.top.equalTo(weakSelf).offset(30);
+        make.size.mas_equalTo(CGSizeMake(250, 20));
+    }];
+ 
+    [self.contentView addSubview:self.publishTime];
+    [self.publishTime mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf).offset(16+50+20);
+        make.top.equalTo(weakSelf.bankName.mas_bottom).offset(5);
+        make.size.mas_equalTo(CGSizeMake(250, 20));
+    }];
+    
+    [self.contentView addSubview:self.activityImage];
+   
+    [self.activityImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf).offset(16);
+        make.top.equalTo(weakSelf).offset(85);
+        make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH-32, 230));
+    }];
+    
+    
 //    [self.contentView addSubview:_activityName];
 //    [self.contentView addSubview:_shareButton];
 //    [self.contentView addSubview:_timeImg];
@@ -101,6 +122,7 @@
         _bankName.text = @"山东省总行";
         _bankName.font = [UIFont fontWithName:@"PingFang-SC-Bold" size:16];
         _bankName.textColor = [UIColor colorWithRed:74/255.0 green:74/255.0 blue:74/255.0 alpha:1.0];
+        _bankName.backgroundColor = [UIColor orangeColor];
     }
     return _bankName;
 }
@@ -118,14 +140,15 @@
         _publishTime = [[UILabel alloc]init];
         _publishTime.text = @"2018-12-12";
         _publishTime.font = [UIFont fontWithName:@"PingFang-SC-Medium" size:14];
+        _publishTime.backgroundColor = [UIColor orangeColor];
         _publishTime.textColor = [UIColor colorWithRed:155/255.0 green:155/255.0 blue:155/255.0 alpha:1.0];
     }
     return _publishTime;
 }
 - (UIImageView*)activityImage{
     if (_activityImage==nil) {
-        _headImage = [[UIImageView alloc]init];
-        _headImage.image = [UIImage imageNamed:@""];
+        _activityImage = [[UIImageView alloc]init];
+        _activityImage.image = [UIImage imageNamed:@"Rectangle"];
     }
     return _activityImage;
 }

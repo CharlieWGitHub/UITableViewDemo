@@ -46,7 +46,6 @@ static NSString * const DYNAMICCELL = @"dynamicCell";//动态
         cell.bankName.text = model.bankName;
         cell.publishTime.text = model.publishTime;
         cell.activityImage.image = [UIImage imageNamed:@"Rectangle"];
-        
     }];
     [self.dataSource addDataArray:self.pt.dataArray];
     [self.headView headViewWithData:@{}];

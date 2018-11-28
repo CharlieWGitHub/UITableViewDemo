@@ -20,12 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic ,strong) UIImageView * timeImg;//活动时间的按钮
 @property (nonatomic ,strong) UILabel * activityTime;//活动时间
-
 @property (nonatomic ,strong) UIImageView * addressImg;//活动地点的按钮
 @property (nonatomic ,strong) UILabel * activityAddrss;//活动地点
 @property (nonatomic ,strong) UIImageView * tagImg;//标签按钮
 @property (nonatomic ,strong) UILabel * activityTag;//活动按钮
-
 @property (nonatomic ,strong) UIButton * joinButton;//立即参加
 
 //@property (nonatomic, strong) UIView * backView;//背景view
