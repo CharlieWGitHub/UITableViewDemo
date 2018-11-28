@@ -17,7 +17,7 @@
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
-    [[UIColor colorWithRed:243/255.0 green:243/255.0 blue:243/255.0 alpha:1] setFill];
+    [[UIColor colorWithHexString:@"#F9F9F9"] setFill];
     UIRectFill(rect);
     CGContextRef context = UIGraphicsGetCurrentContext();
     /*添加弧形对象

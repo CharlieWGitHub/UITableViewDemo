@@ -70,6 +70,7 @@
 #pragma mark -  *************  /**设置---主窗口*/
 #define SDJTKEYWINDOW   [UIApplication sharedApplication].keyWindow
 
+//#define WS(weakSelf)  __weak __typeof(&*self) weakSelf = self;
 
 
 

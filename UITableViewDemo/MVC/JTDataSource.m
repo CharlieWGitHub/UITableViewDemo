@@ -24,7 +24,7 @@
         [self.dataArray removeAllObjects];
     }
     [self.dataArray addObjectsFromArray:datas];
-    
+    NSLog(@"===%@",self.dataArray);
 }
 - (id)modelsAtIndexPath:(NSIndexPath *)indexPath {
     return self.dataArray.count > indexPath.row ? self.dataArray[indexPath.row] : nil;
@@ -32,7 +32,7 @@
 #pragma mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return !self.dataArray  ? 0: self.dataArray.count;
+    return !self.dataArray ? 0: self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -45,8 +45,17 @@
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//  预设高度
+    return 452;
 
-
+}
+-(NSMutableArray *)dataArray
+{
+    if (_dataArray ==nil) {
+        _dataArray = [NSMutableArray arrayWithCapacity:0  ];
+    }return _dataArray;
+}
 
 
 @end

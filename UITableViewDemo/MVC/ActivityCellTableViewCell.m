@@ -11,44 +11,62 @@
 @implementation ActivityCellTableViewCell
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self == [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        self.backgroundColor = [UIColor colorWithHexString:@"#F9F9F9"];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self setupUI];
     }
     return self;
 }
-- (void)layoutSubviews{
-    [super layoutSubviews];
 
-    [self.headImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(16);
-        make.top.mas_equalTo(16);
-        make.size.mas_equalTo(CGSizeMake(48, 48));
-    }];
+//- (void)layoutSubviews{
+//    [super layoutSubviews];
+//    WEAK_SELF;
+//    [self.headImage mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(weakSelf).offset(16);
+//        make.top.equalTo(weakSelf).offset(16);
+//        make.size.mas_equalTo(CGSizeMake(50, 50));
+//    }];
     
-    [self.bankName mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.headImage.mas_right).offset(10);
-        make.right.equalTo(self.contentView);
-        make.top.mas_equalTo(16);
-        make.height.mas_equalTo(25);
-    }];
+   ///发布时间
+//    [self.publishTime mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self.headImage.mas_right).offset(10);
+//        make.right.equalTo(self.contentView);
+//        make.top.equalTo(self.bankName.mas_bottom).offset(10);
+//        make.height.mas_equalTo(25);
+//    }];
+    //活动图片
+//    [self.activityImage mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self.contentView).offset(16);
+//        make.right.equalTo(self.contentView).offset(16);
+//        make.top.equalTo(self.contentView).offset(84);
+//        make.height.mas_equalTo(230);
+//    }];
     
-//。。。。
     
-}
+//未完待续
+    
+//}
 - (void)setupUI{
     
-    [self.contentView addSubview:_headImage];
+    [self.contentView addSubview:self.headImage];
+    WEAK_SELF;
+    [self.headImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf).offset(16);
+        make.top.equalTo(weakSelf).offset(16);
+        make.size.mas_equalTo(CGSizeMake(50, 50));
+    }];
     [self.contentView addSubview:_bankName];
     [self.contentView addSubview:_publishTime];
     [self.contentView addSubview:_activityImage];
-    [self.contentView addSubview:_activityName];
-    [self.contentView addSubview:_shareButton];
-    [self.contentView addSubview:_timeImg];
-    [self.contentView addSubview:_activityTime];
-    [self.contentView addSubview:_addressImg];
-    [self.contentView addSubview:_activityAddrss];
-    [self.contentView addSubview:_tagImg];
-    [self.contentView addSubview:_activityTag];
-    [self.contentView addSubview:_joinButton];
+//    [self.contentView addSubview:_activityName];
+//    [self.contentView addSubview:_shareButton];
+//    [self.contentView addSubview:_timeImg];
+//    [self.contentView addSubview:_activityTime];
+//    [self.contentView addSubview:_addressImg];
+//    [self.contentView addSubview:_activityAddrss];
+//    [self.contentView addSubview:_tagImg];
+//    [self.contentView addSubview:_activityTag];
+//    [self.contentView addSubview:_joinButton];
 
 }
 - (void)drawRect:(CGRect)rect{
@@ -59,10 +77,10 @@
     float fw = SCREEN_WIDTH;
     float fh = 452;
     CGContextMoveToPoint(context, fw, fh-20);  // 开始坐标右下边开始
-    CGContextAddArcToPoint(context, fw, fh, fw-20, fh, 10); // 右下角角度
-    CGContextAddArcToPoint(context, 16, fh, 16, fh-20, 10); // 左下角角度
-    CGContextAddArcToPoint(context, 16, 67, fw-20, 67, 10); // 左上角
-    CGContextAddArcToPoint(context, fw, 67, fw, fh-20, 10); // 右上角
+    CGContextAddArcToPoint(context, fw, fh-10, fw-20, fh-10, 20); // 右下角角度
+    CGContextAddArcToPoint(context, 0, fh-10, 0, fh-20, 20); // 左下角角度
+    CGContextAddArcToPoint(context, 0, 10, fw-20, 10, 20); // 左上角
+    CGContextAddArcToPoint(context, fw, 10, fw, fh-20, 20); // 右上角
     CGContextClosePath(context);
     [[UIColor whiteColor]setFill];
     CGContextSetStrokeColorWithColor(context, [UIColor whiteColor].CGColor);

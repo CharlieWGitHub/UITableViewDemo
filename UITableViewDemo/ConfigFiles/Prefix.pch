@@ -22,5 +22,6 @@
 #import "JTParamsBaseModel.h"
 #import "UIConfig.h"
 #import "Masonry.h"
+#import "UIColor+Extension.h"
 
 #endif /* Prefix_pch */

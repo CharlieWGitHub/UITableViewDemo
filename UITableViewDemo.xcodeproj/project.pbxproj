@@ -11,6 +11,9 @@
 		4874516C672AADDA3CA6352F /* libPods-UITableViewDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF80EEDDCD84AC559F7EFA5D /* libPods-UITableViewDemoTests.a */; };
 		64963FB56BB7F08FA94FA1AA /* libPods-UITableViewDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3A6B80C77566A9101F6D123 /* libPods-UITableViewDemo.a */; };
 		E92490F421AD1F9800AF83E6 /* JTDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E92490F321AD1F9800AF83E6 /* JTDataSource.m */; };
+		E92490F721AE956800AF83E6 /* Present.m in Sources */ = {isa = PBXBuildFile; fileRef = E92490F621AE956800AF83E6 /* Present.m */; };
+		E92490FA21AE962700AF83E6 /* CellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E92490F921AE962700AF83E6 /* CellModel.m */; };
+		E92490FD21AED1BF00AF83E6 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E92490FC21AED1BF00AF83E6 /* UIColor+Extension.m */; };
 		E9326D4C219BBA7300C547FD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9326D4B219BBA7300C547FD /* AppDelegate.m */; };
 		E9326D4F219BBA7300C547FD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9326D4E219BBA7300C547FD /* ViewController.m */; };
 		E9326D52219BBA7300C547FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9326D50219BBA7300C547FD /* Main.storyboard */; };
@@ -70,6 +73,12 @@
 		E3A6B80C77566A9101F6D123 /* libPods-UITableViewDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UITableViewDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E92490F221AD1F9800AF83E6 /* JTDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTDataSource.h; sourceTree = "<group>"; };
 		E92490F321AD1F9800AF83E6 /* JTDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTDataSource.m; sourceTree = "<group>"; };
+		E92490F521AE956800AF83E6 /* Present.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Present.h; sourceTree = "<group>"; };
+		E92490F621AE956800AF83E6 /* Present.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Present.m; sourceTree = "<group>"; };
+		E92490F821AE962700AF83E6 /* CellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CellModel.h; sourceTree = "<group>"; };
+		E92490F921AE962700AF83E6 /* CellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CellModel.m; sourceTree = "<group>"; };
+		E92490FB21AED1BF00AF83E6 /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
+		E92490FC21AED1BF00AF83E6 /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
 		E9326D47219BBA7300C547FD /* UITableViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UITableViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9326D4A219BBA7300C547FD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E9326D4B219BBA7300C547FD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -283,6 +292,10 @@
 				E9326D4E219BBA7300C547FD /* ViewController.m */,
 				E9F79E7C21AAB588007F52F7 /* HeadView.h */,
 				E9F79E7D21AAB588007F52F7 /* HeadView.m */,
+				E92490F521AE956800AF83E6 /* Present.h */,
+				E92490F621AE956800AF83E6 /* Present.m */,
+				E92490F821AE962700AF83E6 /* CellModel.h */,
+				E92490F921AE962700AF83E6 /* CellModel.m */,
 				E92490F221AD1F9800AF83E6 /* JTDataSource.h */,
 				E92490F321AD1F9800AF83E6 /* JTDataSource.m */,
 				E9F79E7621AAB3EB007F52F7 /* ActivityCellTableViewCell.h */,
@@ -355,6 +368,8 @@
 		E98FB0B921A45D750083E500 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				E92490FB21AED1BF00AF83E6 /* UIColor+Extension.h */,
+				E92490FC21AED1BF00AF83E6 /* UIColor+Extension.m */,
 				E9BEA84B21A5A41600E8F827 /* NSDictionary+Extension.h */,
 				E9BEA84C21A5A41600E8F827 /* NSDictionary+Extension.m */,
 				E9BEA84521A5A23200E8F827 /* MBProgressHUD */,
@@ -614,6 +629,7 @@
 			files = (
 				E9613B0D21A7F624006EAC81 /* JTParamsBaseModel.m in Sources */,
 				E94ED62A21A4EC9C00E93485 /* HttpRequestTool.m in Sources */,
+				E92490FD21AED1BF00AF83E6 /* UIColor+Extension.m in Sources */,
 				E9F79E7E21AAB588007F52F7 /* HeadView.m in Sources */,
 				E9F79E7B21AAB401007F52F7 /* DynamicCellTableViewCell.m in Sources */,
 				E9326D4F219BBA7300C547FD /* ViewController.m in Sources */,
@@ -629,11 +645,13 @@
 				E9F79E7521AAAB9B007F52F7 /* JTJGHandle.m in Sources */,
 				E98FB0B321A4553F0083E500 /* MVVMViewController.m in Sources */,
 				E9BEA84921A5A23300E8F827 /* MBProgressHUD+Extension.m in Sources */,
+				E92490F721AE956800AF83E6 /* Present.m in Sources */,
 				E98FB0B021A455340083E500 /* MVPViewController.m in Sources */,
 				E94ED63121A4EEE600E93485 /* CustomPublicHUD.m in Sources */,
 				E9613B1021A7F85F006EAC81 /* LoginHandle.m in Sources */,
 				E9BEA85021A5A44A00E8F827 /* JTUserInfoTool.m in Sources */,
 				E9BEA84421A59D1300E8F827 /* NSString+Extension.m in Sources */,
+				E92490FA21AE962700AF83E6 /* CellModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
