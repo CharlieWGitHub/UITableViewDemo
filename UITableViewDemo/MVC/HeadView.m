@@ -49,12 +49,30 @@
     [[UIColor whiteColor]setFill];
     CGContextSetStrokeColorWithColor(context, [UIColor whiteColor].CGColor);
     CGContextDrawPath(context, kCGPathFillStroke); //根据坐标绘制路径
+    
+    
     //绘制头像
-    UIImage *image = [UIImage imageNamed:@"Rectangle"];
-    [image drawInRect:CGRectMake(60, 340, 20, 20)];//在坐标中画出图片
-    CGContextDrawImage(context, CGRectMake(100, 340, 20, 20), image.CGImage);//使用这个使图片上下颠倒了，参考http://blog.csdn.net/koupoo/article/details/8670024
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Rectangle"]];
+    //开始对imageView进行画图
+UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, NO, 1.0);
+    //使用贝塞尔曲线画出一个圆形图
+    [[UIBezierPath bezierPathWithRoundedRect:imageView.bounds cornerRadius:imageView.frame.size.width] addClip];
+    [imageView drawRect:imageView.bounds];
+    imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+    //结束画图
+    UIGraphicsEndImageContext();
+    [imageView.image drawInRect:CGRectMake(SCREEN_WIDTH/2-45, 20, 90, 90)];
+//    标题
+    NSString * str = @"李沧区张学鹏支行";
+    UIFont * font = [UIFont fontWithName:@"Helvetica-Bold" size:22];
+    //段落格式
+    NSMutableParagraphStyle *textStyle = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
+    textStyle.lineBreakMode = NSLineBreakByWordWrapping;
+    textStyle.alignment = NSTextAlignmentCenter;//水平居中
+
+    [str drawInRect:CGRectMake(20, 120, self.bounds.size.width - 40, 40) withAttributes:@{NSFontAttributeName:font,NSParagraphStyleAttributeName:textStyle}];
     
-    
+   
     
     
     

@@ -36,7 +36,7 @@ static NSString * const DYNAMICCELL = @"dynamicCell";//动态
 }
 
 - (void)loadData{
-
+    
     JTParamsBaseModel *params = [[JTParamsBaseModel alloc] init];
     params.size = SizeNum;
     params.page = [NSString stringWithFormat:@"%ld",(long)self.pageNum];

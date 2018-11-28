@@ -10,6 +10,7 @@
 		04A7F5D027EA2880FBB9CF54 /* libPods-UITableViewDemoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB3FBCFC09F0DDE787719C8 /* libPods-UITableViewDemoUITests.a */; };
 		4874516C672AADDA3CA6352F /* libPods-UITableViewDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF80EEDDCD84AC559F7EFA5D /* libPods-UITableViewDemoTests.a */; };
 		64963FB56BB7F08FA94FA1AA /* libPods-UITableViewDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3A6B80C77566A9101F6D123 /* libPods-UITableViewDemo.a */; };
+		E92490F421AD1F9800AF83E6 /* JTDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E92490F321AD1F9800AF83E6 /* JTDataSource.m */; };
 		E9326D4C219BBA7300C547FD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9326D4B219BBA7300C547FD /* AppDelegate.m */; };
 		E9326D4F219BBA7300C547FD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9326D4E219BBA7300C547FD /* ViewController.m */; };
 		E9326D52219BBA7300C547FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9326D50219BBA7300C547FD /* Main.storyboard */; };
@@ -18,9 +19,6 @@
 		E9326D5A219BBA7400C547FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9326D59219BBA7400C547FD /* main.m */; };
 		E9326D64219BBA7400C547FD /* UITableViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9326D63219BBA7400C547FD /* UITableViewDemoTests.m */; };
 		E9326D6F219BBA7400C547FD /* UITableViewDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9326D6E219BBA7400C547FD /* UITableViewDemoUITests.m */; };
-		E93CA986219EBC9C00A199BE /* model.m in Sources */ = {isa = PBXBuildFile; fileRef = E93CA985219EBC9C00A199BE /* model.m */; };
-		E93CA989219EBCB500A199BE /* MyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E93CA988219EBCB500A199BE /* MyTableViewCell.m */; };
-		E93CA98C219EFEE900A199BE /* CellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E93CA98B219EFEE900A199BE /* CellModel.m */; };
 		E94ED62821A4EC9C00E93485 /* HttpRequestTool.m.orig in Resources */ = {isa = PBXBuildFile; fileRef = E94ED62321A4EC9B00E93485 /* HttpRequestTool.m.orig */; };
 		E94ED62921A4EC9C00E93485 /* ReachabilityNetWorkUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E94ED62421A4EC9B00E93485 /* ReachabilityNetWorkUtils.m */; };
 		E94ED62A21A4EC9C00E93485 /* HttpRequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E94ED62621A4EC9C00E93485 /* HttpRequestTool.m */; };
@@ -70,6 +68,8 @@
 		BCBD1CBE4F7FFE7E111075B5 /* Pods-UITableViewDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITableViewDemoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UITableViewDemoUITests/Pods-UITableViewDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CAB3FBCFC09F0DDE787719C8 /* libPods-UITableViewDemoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UITableViewDemoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3A6B80C77566A9101F6D123 /* libPods-UITableViewDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UITableViewDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E92490F221AD1F9800AF83E6 /* JTDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTDataSource.h; sourceTree = "<group>"; };
+		E92490F321AD1F9800AF83E6 /* JTDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTDataSource.m; sourceTree = "<group>"; };
 		E9326D47219BBA7300C547FD /* UITableViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UITableViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9326D4A219BBA7300C547FD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E9326D4B219BBA7300C547FD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -86,12 +86,6 @@
 		E9326D6A219BBA7400C547FD /* UITableViewDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITableViewDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9326D6E219BBA7400C547FD /* UITableViewDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITableViewDemoUITests.m; sourceTree = "<group>"; };
 		E9326D70219BBA7400C547FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E93CA984219EBC9C00A199BE /* model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = model.h; sourceTree = "<group>"; };
-		E93CA985219EBC9C00A199BE /* model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = model.m; sourceTree = "<group>"; };
-		E93CA987219EBCB500A199BE /* MyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTableViewCell.h; sourceTree = "<group>"; };
-		E93CA988219EBCB500A199BE /* MyTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTableViewCell.m; sourceTree = "<group>"; };
-		E93CA98A219EFEE900A199BE /* CellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CellModel.h; sourceTree = "<group>"; };
-		E93CA98B219EFEE900A199BE /* CellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CellModel.m; sourceTree = "<group>"; };
 		E94ED62321A4EC9B00E93485 /* HttpRequestTool.m.orig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HttpRequestTool.m.orig; sourceTree = "<group>"; };
 		E94ED62421A4EC9B00E93485 /* ReachabilityNetWorkUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReachabilityNetWorkUtils.m; sourceTree = "<group>"; };
 		E94ED62521A4EC9C00E93485 /* ReachabilityNetWorkUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachabilityNetWorkUtils.h; sourceTree = "<group>"; };
@@ -289,16 +283,12 @@
 				E9326D4E219BBA7300C547FD /* ViewController.m */,
 				E9F79E7C21AAB588007F52F7 /* HeadView.h */,
 				E9F79E7D21AAB588007F52F7 /* HeadView.m */,
+				E92490F221AD1F9800AF83E6 /* JTDataSource.h */,
+				E92490F321AD1F9800AF83E6 /* JTDataSource.m */,
 				E9F79E7621AAB3EB007F52F7 /* ActivityCellTableViewCell.h */,
 				E9F79E7721AAB3EB007F52F7 /* ActivityCellTableViewCell.m */,
 				E9F79E7921AAB401007F52F7 /* DynamicCellTableViewCell.h */,
 				E9F79E7A21AAB401007F52F7 /* DynamicCellTableViewCell.m */,
-				E93CA984219EBC9C00A199BE /* model.h */,
-				E93CA985219EBC9C00A199BE /* model.m */,
-				E93CA987219EBCB500A199BE /* MyTableViewCell.h */,
-				E93CA988219EBCB500A199BE /* MyTableViewCell.m */,
-				E93CA98A219EFEE900A199BE /* CellModel.h */,
-				E93CA98B219EFEE900A199BE /* CellModel.m */,
 				E9F79E7321AAAB9B007F52F7 /* JTJGHandle.h */,
 				E9F79E7421AAAB9B007F52F7 /* JTJGHandle.m */,
 			);
@@ -632,14 +622,12 @@
 				E94ED62921A4EC9C00E93485 /* ReachabilityNetWorkUtils.m in Sources */,
 				E9F79E7821AAB3EB007F52F7 /* ActivityCellTableViewCell.m in Sources */,
 				E98FB0B621A4554B0083E500 /* RACViewController.m in Sources */,
+				E92490F421AD1F9800AF83E6 /* JTDataSource.m in Sources */,
 				E9326D5A219BBA7400C547FD /* main.m in Sources */,
 				E9326D4C219BBA7300C547FD /* AppDelegate.m in Sources */,
 				E9BEA85421A5A4CB00E8F827 /* UserModel.m in Sources */,
-				E93CA986219EBC9C00A199BE /* model.m in Sources */,
 				E9F79E7521AAAB9B007F52F7 /* JTJGHandle.m in Sources */,
 				E98FB0B321A4553F0083E500 /* MVVMViewController.m in Sources */,
-				E93CA989219EBCB500A199BE /* MyTableViewCell.m in Sources */,
-				E93CA98C219EFEE900A199BE /* CellModel.m in Sources */,
 				E9BEA84921A5A23300E8F827 /* MBProgressHUD+Extension.m in Sources */,
 				E98FB0B021A455340083E500 /* MVPViewController.m in Sources */,
 				E94ED63121A4EEE600E93485 /* CustomPublicHUD.m in Sources */,
