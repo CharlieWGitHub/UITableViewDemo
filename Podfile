@@ -13,6 +13,7 @@ pod 'UITableView+FDTemplateLayoutCell'
 pod 'ReactiveObjC'
 pod 'MJExtension'
 pod 'MBProgressHUD'
+pod 'MJRefresh'
   # Pods for UITableViewDemo
 
   target 'UITableViewDemoTests' do

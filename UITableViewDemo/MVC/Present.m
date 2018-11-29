@@ -8,11 +8,16 @@
 
 #import "Present.h"
 #import "CellModel.h"
+#import "JTJGHandle.h"
 
 @implementation Present
+{
+    NSInteger pageNum;
+}
 - (instancetype)init{
     if (self = [super init]) {
         [self loadData];
+        pageNum = 0;
     }
     return self;
 }
@@ -22,20 +27,32 @@
     }
     return _dataArray;
 }
+
 - (void)loadData{
     
-    NSArray *temArray =
-    @[
-      @{@"bankName":@"Hank",@"headImage":@"Oval1",@"publishTime":@"99",@"activityImage":@"Rectangle"},
-      @{@"bankName":@"Cooci",@"headImage":@"Oval1",@"publishTime":@"99",@"activityImage":@"Rectangle"},
-      @{@"bankName":@"Kody",@"headImage":@"Oval1",@"publishTime":@"99",@"activityImage":@"Rectangle"},
-     
-      @{@"bankName":@"小雁子",@"headImage":@"Oval1",@"publishTime":@"59",@"activityImage":@"Rectangle"},
-      @{@"bankName":@"Lina",@"headImage":@"Oval1",@"publishTime":@"49",@"activityImage":@"Rectangle"}];
-//    for (int i = 0; i<temArray.count; i++) {
-//        CellModel *m = [CellModel mj_objectWithKeyValues:temArray[i]];
-//        [self.dataArray addObject:m];
-//    }
-    self.dataArray = [NSMutableArray arrayWithArray:[CellModel mj_objectArrayWithKeyValuesArray:temArray]];
+ 
+    
+    JTParamsBaseModel *params = [[JTParamsBaseModel alloc] init];
+    params.size = SizeNum;
+    params.page = [NSString stringWithFormat:@"%ld",(long)self->pageNum];
+    params.sort = @"tx_tm";
+    params.id = [JTUserInfoTool shareInstance].data.userId;
+    //    if (self.titleStr.length>0) {
+    params.title = @"";
+    //    }
+    //    if (self.retrieval.length>0) {
+    params.retrieval = @"";
+    //    }
+    [JTJGHandle loadOrgAgencyCircleParams:params success:^(CellModel * _Nonnull allDataModel) {
+        
+    } failure:^(NSError * _Nonnull error) {
+   
+    }];
+    
 }
+
+
+
+
+
 @end

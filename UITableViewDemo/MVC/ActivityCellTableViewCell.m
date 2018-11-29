@@ -7,6 +7,8 @@
 //
 
 #import "ActivityCellTableViewCell.h"
+#import "UIImage+UIImageFillet.h"
+
 
 @implementation ActivityCellTableViewCell
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -17,35 +19,6 @@
     }
     return self;
 }
-
-//- (void)layoutSubviews{
-//    [super layoutSubviews];
-//    WEAK_SELF;
-//    [self.headImage mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(weakSelf).offset(16);
-//        make.top.equalTo(weakSelf).offset(16);
-//        make.size.mas_equalTo(CGSizeMake(50, 50));
-//    }];
-    
-   ///发布时间
-//    [self.publishTime mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self.headImage.mas_right).offset(10);
-//        make.right.equalTo(self.contentView);
-//        make.top.equalTo(self.bankName.mas_bottom).offset(10);
-//        make.height.mas_equalTo(25);
-//    }];
-    //活动图片
-//    [self.activityImage mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self.contentView).offset(16);
-//        make.right.equalTo(self.contentView).offset(16);
-//        make.top.equalTo(self.contentView).offset(84);
-//        make.height.mas_equalTo(230);
-//    }];
-    
-    
-//未完待续
-    
-//}
 - (void)setupUI{
     
     [self.contentView addSubview:self.headImage];
@@ -71,24 +44,76 @@
     }];
     
     [self.contentView addSubview:self.activityImage];
-   
     [self.activityImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(weakSelf).offset(16);
-        make.top.equalTo(weakSelf).offset(85);
+        make.top.equalTo(weakSelf).offset(90);
         make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH-32, 230));
     }];
     
+    [self.contentView addSubview:self.activityName];
+    [self.activityName mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf).offset(16);
+        make.top.equalTo(weakSelf.activityImage.mas_bottom).offset(10);
+        make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH-16-40,30));
+    }];
+   
+    [self.contentView addSubview:self.shareButton];
+    [self.shareButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(weakSelf).offset(-25);
+        make.top.equalTo(weakSelf.activityImage.mas_bottom).offset(10);
+        make.size.mas_equalTo(CGSizeMake(25, 25));
+    }];
+   
+    [self.contentView addSubview:self.timeImg];
+    [self.timeImg mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf.activityName.mas_bottom).offset(5);
+        make.left.equalTo(weakSelf).offset(16);
+        make.size.mas_equalTo(CGSizeMake(20, 20));
+    }];
     
-//    [self.contentView addSubview:_activityName];
-//    [self.contentView addSubview:_shareButton];
-//    [self.contentView addSubview:_timeImg];
-//    [self.contentView addSubview:_activityTime];
-//    [self.contentView addSubview:_addressImg];
-//    [self.contentView addSubview:_activityAddrss];
-//    [self.contentView addSubview:_tagImg];
-//    [self.contentView addSubview:_activityTag];
-//    [self.contentView addSubview:_joinButton];
-
+   
+    [self.contentView addSubview:self.activityTime];
+    [self.activityTime mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf.activityName.mas_bottom).offset(5);
+        make.left.equalTo(weakSelf.timeImg.mas_right).offset(5);
+        make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH - 60, 20));
+    }];
+    
+    [self.contentView addSubview:self.addressImg];
+    [self.addressImg mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf.timeImg.mas_bottom).offset(10);
+        make.left.equalTo(weakSelf).offset(16);
+        make.size.mas_equalTo(CGSizeMake(20, 20));
+    }];
+    
+    [self.contentView addSubview:self.activityAddrss];
+    [self.activityAddrss mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.addressImg.mas_right).offset(5);
+        make.top.equalTo(weakSelf.activityTime.mas_bottom).offset(10);
+        make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH -60, 20));
+    }];
+    
+    [self.contentView addSubview:self.tagImg];
+    [self.tagImg mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf).offset(16);
+        make.top.equalTo(weakSelf.addressImg.mas_bottom).offset(10);
+        make.size.mas_equalTo(CGSizeMake(20, 20));
+    }];
+    
+    [self.contentView addSubview:self.activityTag];
+    [self.activityTag mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.tagImg.mas_right).offset(5);
+        make.top.equalTo(weakSelf.activityAddrss.mas_bottom).offset(10);
+        make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH-60 - 100, 20));
+    }];
+   
+    [self.contentView addSubview:self.joinButton];
+    [self.joinButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(weakSelf).offset(-20);
+        make.top.equalTo(weakSelf.activityAddrss.mas_bottom).offset(5);
+        make.size.mas_equalTo(CGSizeMake(96, 30));
+    }];
+    
 }
 - (void)drawRect:(CGRect)rect{
    
@@ -96,7 +121,7 @@
     CGContextDrawPath(context, kCGPathFillStroke);
     //绘制一个矩形 （）
     float fw = SCREEN_WIDTH;
-    float fh = 452;
+    float fh = 475;
     CGContextMoveToPoint(context, fw, fh-20);  // 开始坐标右下边开始
     CGContextAddArcToPoint(context, fw, fh-10, fw-20, fh-10, 20); // 右下角角度
     CGContextAddArcToPoint(context, 0, fh-10, 0, fh-20, 20); // 左下角角度
@@ -106,15 +131,8 @@
     [[UIColor whiteColor]setFill];
     CGContextSetStrokeColorWithColor(context, [UIColor whiteColor].CGColor);
     CGContextDrawPath(context, kCGPathFillStroke); //根据坐标绘制路径
-    
 }
-//- (UIView*)backView{
-//    if (_backView==nil) {
-//        _backView = [[UIView alloc]init];
-//        _backView.backgroundColor = [UIColor whiteColor];
-//    }
-//    return _backView;
-//}
+
 //名字
 - (UILabel *)bankName{
     if (_bankName==nil) {
@@ -122,7 +140,7 @@
         _bankName.text = @"山东省总行";
         _bankName.font = [UIFont fontWithName:@"PingFang-SC-Bold" size:16];
         _bankName.textColor = [UIColor colorWithRed:74/255.0 green:74/255.0 blue:74/255.0 alpha:1.0];
-        _bankName.backgroundColor = [UIColor orangeColor];
+//        _bankName.backgroundColor = [UIColor orangeColor];
     }
     return _bankName;
 }
@@ -140,15 +158,20 @@
         _publishTime = [[UILabel alloc]init];
         _publishTime.text = @"2018-12-12";
         _publishTime.font = [UIFont fontWithName:@"PingFang-SC-Medium" size:14];
-        _publishTime.backgroundColor = [UIColor orangeColor];
+//        _publishTime.backgroundColor = [UIColor orangeColor];
         _publishTime.textColor = [UIColor colorWithRed:155/255.0 green:155/255.0 blue:155/255.0 alpha:1.0];
     }
     return _publishTime;
 }
+//活动图片
 - (UIImageView*)activityImage{
     if (_activityImage==nil) {
         _activityImage = [[UIImageView alloc]init];
         _activityImage.image = [UIImage imageNamed:@"Rectangle"];
+
+        _activityImage.layer.cornerRadius = 16;
+        _activityImage.layer.masksToBounds = true;
+
     }
     return _activityImage;
 }
@@ -171,8 +194,8 @@
 }
 - (UIImageView *)timeImg{
     if (_timeImg ==nil) {
-        _headImage = [[UIImageView alloc]init];
-        _headImage.image = [UIImage imageNamed:@"activityTime"];
+        _timeImg = [[UIImageView alloc]init];
+        _timeImg.image = [UIImage imageNamed:@"activityTime"];
     }
     return _timeImg;
 }
@@ -203,8 +226,8 @@
 }
 - (UIImageView *)tagImg{
     if (_tagImg==nil) {
-        _headImage = [[UIImageView alloc]init];
-        _headImage.image = [UIImage imageNamed:@"activityTag"];
+        _tagImg = [[UIImageView alloc]init];
+        _tagImg.image = [UIImage imageNamed:@"activityTag"];
     }
     return _tagImg;
 }

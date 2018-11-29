@@ -38,6 +38,7 @@
 		E9BEA84D21A5A41600E8F827 /* NSDictionary+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BEA84C21A5A41600E8F827 /* NSDictionary+Extension.m */; };
 		E9BEA85021A5A44A00E8F827 /* JTUserInfoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BEA84E21A5A44A00E8F827 /* JTUserInfoTool.m */; };
 		E9BEA85421A5A4CB00E8F827 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BEA85321A5A4CB00E8F827 /* UserModel.m */; };
+		E9E697F321AF7A51002F4F20 /* UIImage+UIImageFillet.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E697F221AF7A51002F4F20 /* UIImage+UIImageFillet.m */; };
 		E9F79E7521AAAB9B007F52F7 /* JTJGHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F79E7421AAAB9B007F52F7 /* JTJGHandle.m */; };
 		E9F79E7821AAB3EB007F52F7 /* ActivityCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F79E7721AAB3EB007F52F7 /* ActivityCellTableViewCell.m */; };
 		E9F79E7B21AAB401007F52F7 /* DynamicCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F79E7A21AAB401007F52F7 /* DynamicCellTableViewCell.m */; };
@@ -129,6 +130,8 @@
 		E9BEA84F21A5A44A00E8F827 /* JTUserInfoTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTUserInfoTool.h; sourceTree = "<group>"; };
 		E9BEA85221A5A4CA00E8F827 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		E9BEA85321A5A4CB00E8F827 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		E9E697F121AF7A51002F4F20 /* UIImage+UIImageFillet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+UIImageFillet.h"; sourceTree = "<group>"; };
+		E9E697F221AF7A51002F4F20 /* UIImage+UIImageFillet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+UIImageFillet.m"; sourceTree = "<group>"; };
 		E9F79E7321AAAB9B007F52F7 /* JTJGHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTJGHandle.h; sourceTree = "<group>"; };
 		E9F79E7421AAAB9B007F52F7 /* JTJGHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTJGHandle.m; sourceTree = "<group>"; };
 		E9F79E7621AAB3EB007F52F7 /* ActivityCellTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActivityCellTableViewCell.h; sourceTree = "<group>"; };
@@ -375,6 +378,8 @@
 				E9BEA84521A5A23200E8F827 /* MBProgressHUD */,
 				E9BEA84221A59D1300E8F827 /* NSString+Extension.h */,
 				E9BEA84321A59D1300E8F827 /* NSString+Extension.m */,
+				E9E697F121AF7A51002F4F20 /* UIImage+UIImageFillet.h */,
+				E9E697F221AF7A51002F4F20 /* UIImage+UIImageFillet.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -574,10 +579,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-UITableViewDemo/Pods-UITableViewDemo-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -630,6 +637,7 @@
 				E9613B0D21A7F624006EAC81 /* JTParamsBaseModel.m in Sources */,
 				E94ED62A21A4EC9C00E93485 /* HttpRequestTool.m in Sources */,
 				E92490FD21AED1BF00AF83E6 /* UIColor+Extension.m in Sources */,
+				E9E697F321AF7A51002F4F20 /* UIImage+UIImageFillet.m in Sources */,
 				E9F79E7E21AAB588007F52F7 /* HeadView.m in Sources */,
 				E9F79E7B21AAB401007F52F7 /* DynamicCellTableViewCell.m in Sources */,
 				E9326D4F219BBA7300C547FD /* ViewController.m in Sources */,
@@ -828,10 +836,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/UITableViewDemo/ConfigFiles/Prefix.pch";
 				INFOPLIST_FILE = UITableViewDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.charlie.UITableViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -848,10 +853,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/UITableViewDemo/ConfigFiles/Prefix.pch";
 				INFOPLIST_FILE = UITableViewDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.charlie.UITableViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -866,11 +868,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z3L8JB7WBX;
 				INFOPLIST_FILE = UITableViewDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.charlie.UITableViewDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -886,11 +884,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z3L8JB7WBX;
 				INFOPLIST_FILE = UITableViewDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.charlie.UITableViewDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -905,11 +899,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z3L8JB7WBX;
 				INFOPLIST_FILE = UITableViewDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.charlie.UITableViewDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -924,11 +914,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z3L8JB7WBX;
 				INFOPLIST_FILE = UITableViewDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.charlie.UITableViewDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -16,6 +16,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic ,strong) NSString * bankName;//银行名称
 @property (nonatomic ,strong) NSString * publishTime;//发布时间
 @property (nonatomic ,strong) NSString * activityImage;//活动图片
+
+
+
+
+
+
 @end
 
 NS_ASSUME_NONNULL_END
