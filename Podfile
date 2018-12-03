@@ -8,12 +8,13 @@ pod 'AFNetworking'
 pod 'IQKeyboardManager'
 pod 'SDWebImage'
 pod 'Masonry'
-pod 'MBProgressHUD'
 pod 'UITableView+FDTemplateLayoutCell'
 pod 'ReactiveObjC'
 pod 'MJExtension'
-pod 'MBProgressHUD'
+#pod 'MBProgressHUD'
 pod 'MJRefresh'
+pod 'YYWebImage'
+#pod 'BaiduMapKit'
   # Pods for UITableViewDemo
 
   target 'UITableViewDemoTests' do

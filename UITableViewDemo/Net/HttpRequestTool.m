@@ -225,31 +225,31 @@ constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
                 }else if (txnStatus == 500){//token 失效，跳转登录界面，后台说错误码500，临时先写500
                  //发送个通知，后期处理
                     if (view == nil) {
-                        [MBProgressHUD hideHUD];
+//                        [MBProgressHUD hideHUD];
                     }else{
-                        [MBProgressHUD hideHUDForView:view];
+//                        [MBProgressHUD hideHUDForView:view];
                     }
                     
                     NSString *txnStatusMsgStr = @"";
                     if ([resultDict
                          .allKeys containsObject:@"message"]) {
                         txnStatusMsgStr = resultDict[@"message"];
-                        [MBProgressHUD showText:txnStatusMsgStr toView:view];
+//                        [MBProgressHUD showText:txnStatusMsgStr toView:view];
                     }
                     
                 }else{//失败，提示失败信息
                     
                     if (view == nil) {
-                        [MBProgressHUD hideHUD];
+//                        [MBProgressHUD hideHUD];
                     }else{
-                        [MBProgressHUD hideHUDForView:view];
+//                        [MBProgressHUD hideHUDForView:view];
                     }
                     
                     NSString *txnStatusMsgStr = @"";
                     if ([resultDict
                          .allKeys containsObject:@"message"]) {
                         txnStatusMsgStr = resultDict[@"message"];
-                        [MBProgressHUD showText:txnStatusMsgStr];
+//                        [MBProgressHUD showText:txnStatusMsgStr];
                     }
                     if (failure) {
                         failure(resultDict,nil);
@@ -264,9 +264,9 @@ constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"post failed--%@",error);
         if (view == nil) {
-            [MBProgressHUD hideHUD];
+//            [MBProgressHUD hideHUD];
         }else{
-            [MBProgressHUD hideHUDForView:view];
+//            [MBProgressHUD hideHUDForView:view];
         }
         [weakSelf requestFailed:error failure:^(id responseObject, NSError *error) {
             if (failure) {
@@ -326,31 +326,31 @@ constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
                     //发送个通知，后期处理
                     
                     if (view == nil) {
-                        [MBProgressHUD hideHUD];
+//                        [MBProgressHUD hideHUD];
                     }else{
-                        [MBProgressHUD hideHUDForView:view];
+//                        [MBProgressHUD hideHUDForView:view];
                     }
                     
                     NSString *txnStatusMsgStr = @"";
                     if ([resultDict
                          .allKeys containsObject:@"message"]) {
                         txnStatusMsgStr = resultDict[@"message"];
-                        [MBProgressHUD showText:txnStatusMsgStr];
+//                        [MBProgressHUD showText:txnStatusMsgStr];
                     }
                     
                 }else{//失败，提示失败信息
                     
                     if (view == nil) {
-                        [MBProgressHUD hideHUD];
+//                        [MBProgressHUD hideHUD];
                     }else{
-                        [MBProgressHUD hideHUDForView:view];
+//                        [MBProgressHUD hideHUDForView:view];
                     }
                     
                     NSString *txnStatusMsgStr = @"";
                     if ([resultDict
                          .allKeys containsObject:@"message"]) {
                         txnStatusMsgStr = resultDict[@"message"];
-                        [MBProgressHUD showText:txnStatusMsgStr];
+//                        [MBProgressHUD showText:txnStatusMsgStr];
                     }
                     if (failure) {
                         failure(resultDict,nil);
@@ -364,9 +364,9 @@ constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"post failed--%@",error);
         if (view == nil) {
-            [MBProgressHUD hideHUD];
+//            [MBProgressHUD hideHUD];
         }else{
-            [MBProgressHUD hideHUDForView:view];
+//            [MBProgressHUD hideHUDForView:view];
         }
         [weakSelf requestFailed:error failure:^(id responseObject, NSError *error) {
             if (failure) {
@@ -412,31 +412,31 @@ constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
                     //发送个通知，后期处理
                     
                     if (view == nil) {
-                        [MBProgressHUD hideHUD];
+//                        [MBProgressHUD hideHUD];
                     }else{
-                        [MBProgressHUD hideHUDForView:view];
+//                        [MBProgressHUD hideHUDForView:view];
                     }
                     
                     NSString *txnStatusMsgStr = @"";
                     if ([resultDict
                          .allKeys containsObject:@"message"]) {
                         txnStatusMsgStr = resultDict[@"message"];
-                        [MBProgressHUD showText:txnStatusMsgStr];
+//                        [MBProgressHUD showText:txnStatusMsgStr];
                     }
                     
                 }else{//失败，提示失败信息
                     
                     if (view == nil) {
-                        [MBProgressHUD hideHUD];
+//                        [MBProgressHUD hideHUD];
                     }else{
-                        [MBProgressHUD hideHUDForView:view];
+//                        [MBProgressHUD hideHUDForView:view];
                     }
                     
                     NSString *txnStatusMsgStr = @"";
                     if ([resultDict
                          .allKeys containsObject:@"message"]) {
                         txnStatusMsgStr = resultDict[@"message"];
-                        [MBProgressHUD showText:txnStatusMsgStr];
+//                        [MBProgressHUD showText:txnStatusMsgStr];
                     }
                     if (failure) {
                         failure(resultDict,nil);
@@ -451,9 +451,9 @@ constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"get failed--%@",error);
         if (view == nil) {
-            [MBProgressHUD hideHUD];
+//            [MBProgressHUD hideHUD];
         }else{
-            [MBProgressHUD hideHUDForView:view];
+//            [MBProgressHUD hideHUDForView:view];
         }
         
         [weakSelf requestFailed:error failure:^(id responseObject, NSError *error) {
@@ -497,7 +497,7 @@ constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
             if ([resultDict
                  .allKeys containsObject:@"message"]) {
                 txnStatusMsgStr = resultDict[@"message"];
-                [MBProgressHUD showText:txnStatusMsgStr];
+//                [MBProgressHUD showText:txnStatusMsgStr];
             }
             if (failure) {
                 failure(resultDict,error);
@@ -509,7 +509,7 @@ constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
             if ([resultDict
                  .allKeys containsObject:@"message"]) {
                 txnStatusMsgStr = resultDict[@"message"];
-                [MBProgressHUD showText:txnStatusMsgStr];
+//                [MBProgressHUD showText:txnStatusMsgStr];
             }
             if (failure) {
                 failure(resultDict,error);
@@ -522,21 +522,21 @@ constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
     switch (error.code) {
         case AFNetworkErrorType_NoNetwork:
             NSLog(@"网络连接已断开");
-            [MBProgressHUD showText:@"网络连接已断开"];
+//            [MBProgressHUD showText:@"网络连接已断开"];
             break;
         case AFNetworkErrorType_ConnectToHost:
 //            NSLog(@"网络连接失败，请检查网络");
             NSLog(@"未能连接到服务器，请检查网络");
-            [MBProgressHUD showText:@"未能连接到服务器，请检查网络"];
+//            [MBProgressHUD showText:@"未能连接到服务器，请检查网络"];
             break;
         case AFNetworkErrorType_TimedOut :
             NSLog(@"访问服务器超时，请检查网络。");
 //            [MBProgressHUD showText:@"访问服务器超时，请检查网络"];
-            [MBProgressHUD showText:@"访问服务器超时"];
+//            [MBProgressHUD showText:@"访问服务器超时"];
             break;
         case AFNetworkErrorType_3840Failed :
             NSLog(@"服务器报错了，请稍后再访问。");
-            [MBProgressHUD showText:@"服务器报错了，请稍后再访问"];
+//            [MBProgressHUD showText:@"服务器报错了，请稍后再访问"];
             break;
         case AFNetworkErrorType_Cancelled:
             NSLog(@"操作取消");

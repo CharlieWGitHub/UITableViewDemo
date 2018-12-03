@@ -33,8 +33,6 @@
 		E98FB0B621A4554B0083E500 /* RACViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E98FB0B521A4554B0083E500 /* RACViewController.m */; };
 		E9BEA84121A59AF000E8F827 /* Login.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BEA84021A59AF000E8F827 /* Login.m */; };
 		E9BEA84421A59D1300E8F827 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BEA84321A59D1300E8F827 /* NSString+Extension.m */; };
-		E9BEA84921A5A23300E8F827 /* MBProgressHUD+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BEA84721A5A23200E8F827 /* MBProgressHUD+Extension.m */; };
-		E9BEA84A21A5A23300E8F827 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E9BEA84821A5A23200E8F827 /* MBProgressHUD.bundle */; };
 		E9BEA84D21A5A41600E8F827 /* NSDictionary+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BEA84C21A5A41600E8F827 /* NSDictionary+Extension.m */; };
 		E9BEA85021A5A44A00E8F827 /* JTUserInfoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BEA84E21A5A44A00E8F827 /* JTUserInfoTool.m */; };
 		E9BEA85421A5A4CB00E8F827 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BEA85321A5A4CB00E8F827 /* UserModel.m */; };
@@ -121,9 +119,6 @@
 		E9BEA84021A59AF000E8F827 /* Login.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Login.m; sourceTree = "<group>"; };
 		E9BEA84221A59D1300E8F827 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		E9BEA84321A59D1300E8F827 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
-		E9BEA84621A5A23200E8F827 /* MBProgressHUD+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Extension.h"; sourceTree = "<group>"; };
-		E9BEA84721A5A23200E8F827 /* MBProgressHUD+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Extension.m"; sourceTree = "<group>"; };
-		E9BEA84821A5A23200E8F827 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		E9BEA84B21A5A41600E8F827 /* NSDictionary+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Extension.h"; sourceTree = "<group>"; };
 		E9BEA84C21A5A41600E8F827 /* NSDictionary+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Extension.m"; sourceTree = "<group>"; };
 		E9BEA84E21A5A44A00E8F827 /* JTUserInfoTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTUserInfoTool.m; sourceTree = "<group>"; };
@@ -291,22 +286,8 @@
 		E98FB0A921A44EE40083E500 /* MVC */ = {
 			isa = PBXGroup;
 			children = (
-				E9326D4D219BBA7300C547FD /* ViewController.h */,
-				E9326D4E219BBA7300C547FD /* ViewController.m */,
-				E9F79E7C21AAB588007F52F7 /* HeadView.h */,
-				E9F79E7D21AAB588007F52F7 /* HeadView.m */,
-				E92490F521AE956800AF83E6 /* Present.h */,
-				E92490F621AE956800AF83E6 /* Present.m */,
-				E92490F821AE962700AF83E6 /* CellModel.h */,
-				E92490F921AE962700AF83E6 /* CellModel.m */,
-				E92490F221AD1F9800AF83E6 /* JTDataSource.h */,
-				E92490F321AD1F9800AF83E6 /* JTDataSource.m */,
-				E9F79E7621AAB3EB007F52F7 /* ActivityCellTableViewCell.h */,
-				E9F79E7721AAB3EB007F52F7 /* ActivityCellTableViewCell.m */,
-				E9F79E7921AAB401007F52F7 /* DynamicCellTableViewCell.h */,
-				E9F79E7A21AAB401007F52F7 /* DynamicCellTableViewCell.m */,
-				E9F79E7321AAAB9B007F52F7 /* JTJGHandle.h */,
-				E9F79E7421AAAB9B007F52F7 /* JTJGHandle.m */,
+				E99143D821B4CA72005D5FE3 /* temp1 */,
+				E99143D721B4CA68005D5FE3 /* temp */,
 			);
 			path = MVC;
 			sourceTree = "<group>";
@@ -375,7 +356,6 @@
 				E92490FC21AED1BF00AF83E6 /* UIColor+Extension.m */,
 				E9BEA84B21A5A41600E8F827 /* NSDictionary+Extension.h */,
 				E9BEA84C21A5A41600E8F827 /* NSDictionary+Extension.m */,
-				E9BEA84521A5A23200E8F827 /* MBProgressHUD */,
 				E9BEA84221A59D1300E8F827 /* NSString+Extension.h */,
 				E9BEA84321A59D1300E8F827 /* NSString+Extension.m */,
 				E9E697F121AF7A51002F4F20 /* UIImage+UIImageFillet.h */,
@@ -391,6 +371,36 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		E99143D721B4CA68005D5FE3 /* temp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = temp;
+			sourceTree = "<group>";
+		};
+		E99143D821B4CA72005D5FE3 /* temp1 */ = {
+			isa = PBXGroup;
+			children = (
+				E9326D4D219BBA7300C547FD /* ViewController.h */,
+				E9326D4E219BBA7300C547FD /* ViewController.m */,
+				E9F79E7C21AAB588007F52F7 /* HeadView.h */,
+				E9F79E7D21AAB588007F52F7 /* HeadView.m */,
+				E92490F521AE956800AF83E6 /* Present.h */,
+				E92490F621AE956800AF83E6 /* Present.m */,
+				E92490F821AE962700AF83E6 /* CellModel.h */,
+				E92490F921AE962700AF83E6 /* CellModel.m */,
+				E92490F221AD1F9800AF83E6 /* JTDataSource.h */,
+				E92490F321AD1F9800AF83E6 /* JTDataSource.m */,
+				E9F79E7621AAB3EB007F52F7 /* ActivityCellTableViewCell.h */,
+				E9F79E7721AAB3EB007F52F7 /* ActivityCellTableViewCell.m */,
+				E9F79E7921AAB401007F52F7 /* DynamicCellTableViewCell.h */,
+				E9F79E7A21AAB401007F52F7 /* DynamicCellTableViewCell.m */,
+				E9F79E7321AAAB9B007F52F7 /* JTJGHandle.h */,
+				E9F79E7421AAAB9B007F52F7 /* JTJGHandle.m */,
+			);
+			path = temp1;
+			sourceTree = "<group>";
+		};
 		E9BEA83E21A59AC700E8F827 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -400,16 +410,6 @@
 				E9BEA84021A59AF000E8F827 /* Login.m */,
 			);
 			path = Login;
-			sourceTree = "<group>";
-		};
-		E9BEA84521A5A23200E8F827 /* MBProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				E9BEA84621A5A23200E8F827 /* MBProgressHUD+Extension.h */,
-				E9BEA84721A5A23200E8F827 /* MBProgressHUD+Extension.m */,
-				E9BEA84821A5A23200E8F827 /* MBProgressHUD.bundle */,
-			);
-			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		E9BEA85121A5A4A700E8F827 /* Model */ = {
@@ -530,7 +530,6 @@
 			files = (
 				E9326D57219BBA7400C547FD /* LaunchScreen.storyboard in Resources */,
 				E9326D54219BBA7400C547FD /* Assets.xcassets in Resources */,
-				E9BEA84A21A5A23300E8F827 /* MBProgressHUD.bundle in Resources */,
 				E9326D52219BBA7300C547FD /* Main.storyboard in Resources */,
 				E94ED62821A4EC9C00E93485 /* HttpRequestTool.m.orig in Resources */,
 			);
@@ -652,7 +651,6 @@
 				E9BEA85421A5A4CB00E8F827 /* UserModel.m in Sources */,
 				E9F79E7521AAAB9B007F52F7 /* JTJGHandle.m in Sources */,
 				E98FB0B321A4553F0083E500 /* MVVMViewController.m in Sources */,
-				E9BEA84921A5A23300E8F827 /* MBProgressHUD+Extension.m in Sources */,
 				E92490F721AE956800AF83E6 /* Present.m in Sources */,
 				E98FB0B021A455340083E500 /* MVPViewController.m in Sources */,
 				E94ED63121A4EEE600E93485 /* CustomPublicHUD.m in Sources */,
@@ -836,7 +834,10 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/UITableViewDemo/ConfigFiles/Prefix.pch";
 				INFOPLIST_FILE = UITableViewDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.charlie.UITableViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -853,7 +854,10 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/UITableViewDemo/ConfigFiles/Prefix.pch";
 				INFOPLIST_FILE = UITableViewDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.charlie.UITableViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -868,7 +872,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z3L8JB7WBX;
 				INFOPLIST_FILE = UITableViewDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.charlie.UITableViewDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -884,7 +892,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z3L8JB7WBX;
 				INFOPLIST_FILE = UITableViewDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.charlie.UITableViewDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -899,7 +911,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z3L8JB7WBX;
 				INFOPLIST_FILE = UITableViewDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.charlie.UITableViewDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -914,7 +930,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z3L8JB7WBX;
 				INFOPLIST_FILE = UITableViewDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.charlie.UITableViewDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

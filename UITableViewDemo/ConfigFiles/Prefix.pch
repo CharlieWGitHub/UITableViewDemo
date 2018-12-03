@@ -10,13 +10,13 @@
 #define Prefix_pch
 
 #import "APIConfig.h"
-#import "CustomPublicHUD.h"
 
+#import "CustomPublicHUD.h"
 #import "PublicConfig.h"
 #import "NSString+Extension.h"
-#import <MJExtension.h>
-#import <MBProgressHUD.h>
-#import "MBProgressHUD+Extension.h"
+#import "MJExtension.h"
+//#import <MBProgressHUD.h>
+//#import "MBProgressHUD+Extension.h"
 #import "NSDictionary+Extension.h"
 #import "JTUserInfoTool.h"
 #import "JTParamsBaseModel.h"
@@ -25,5 +25,6 @@
 #import "UIColor+Extension.h"
 #import "UIImage+UIImageFillet.h"
 #import "MJRefresh.h"
+#import <YYImage.h>
 
 #endif /* Prefix_pch */
