@@ -32,12 +32,11 @@
         make.right.equalTo(weakSelf).offset(-25);
     }];
   
-    
+//  名字跟图标
     [self.topBackView addSubview:self.branchNm];
     [self.topBackView addSubview:self.pointpraiseBackView];
 
     [self.branchNm mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.centerY.mas_equalTo(0);
         make.center.mas_equalTo(0);
     make.right.mas_equalTo(weakSelf.pointpraiseBackView.mas_left).offset(-10);
         
@@ -50,18 +49,102 @@
         make.left.mas_equalTo(weakSelf.branchNm.mas_right).offset(10);
     }];
     
-    /*
-    [self addSubview:self.pointpraiseNo];
-
+//  动态点赞个数
+    [self.pointpraiseBackView addSubview:self.pointpraiseNo];
+    [self.pointpraiseNo mas_makeConstraints:^(MASConstraintMaker *make) {
+       //向右边+5，竖直方向不变
+        make.center.mas_equalTo(weakSelf.pointpraiseBackView).centerOffset(CGPointMake(5, 0));
+    }];
     //排名
     [self addSubview:self.comprehensiveNu];
+    [self.comprehensiveNu mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf.topBackView.mas_bottom).offset(5);
+        make.left.equalTo(weakSelf).offset(30);
+        make.right.equalTo(weakSelf).offset(-30);
+        make.height.mas_equalTo(20);
+    }];
+    [self addSubview:self.midView];
+    //中间view
+    [self.midView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf.comprehensiveNu.mas_bottom).offset(10);
+        make.left.equalTo(weakSelf).offset(30);
+//        make.right.equalTo(weakSelf).offset(30);
+        make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH-60, 50));
+        
+    }];
+    [self.midView addSubview:self.dynamicNuLab];
+    [self.midView addSubview:self.activityNuLab];
+    [self.midView addSubview:self.commentNoLab];
     
-    [self addSubview:self.dynamicNuLab];
-    [self addSubview:self.activityNuLab];
-    [self addSubview:self.commentNoLab];
+    [self.dynamicNuLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.midView).offset(0);
+        make.right.equalTo(weakSelf.activityNuLab.mas_left).offset(0);
+        make.centerY.equalTo(weakSelf.midView);
+        
+        /**
+         *  长宽相等 注意，这里不能用 make.height.equalTo(make.width);
+         */
+        make.height.equalTo(weakSelf.midView.mas_height); /// 约束长度等于宽度
+        make.width.equalTo(weakSelf.activityNuLab.mas_width);
+        
+    }];
+    
+    [self.activityNuLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(weakSelf.midView);
+        make.right.equalTo(weakSelf.commentNoLab.mas_left).offset(0);
+        make.height.equalTo(weakSelf.midView);
+        make.width.equalTo(weakSelf.commentNoLab);
+    }];
+    [self.commentNoLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(weakSelf.midView);
+        make.right.equalTo(weakSelf.midView);
+        make.height.equalTo(weakSelf.midView);
+        make.width.equalTo(weakSelf.activityNuLab);
+
+    }];
+    
+    [self addSubview:self.lineView];
+    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left .equalTo(weakSelf).offset(20);
+        make.right.equalTo(weakSelf).offset(-20);
+        make.top.equalTo(weakSelf.midView.mas_bottom).offset(2);
+        make.height.mas_equalTo(1);
+    }];
 //    最新动态
     [self addSubview:self.dContextLab];
-    */
+    [self.dContextLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf).offset(20);
+        make.right.equalTo(weakSelf).offset(-20);
+        make.top.equalTo(weakSelf.lineView.mas_bottom).offset(10);
+        make.height.mas_equalTo(25);
+    }];
+    
+}
+
+- (void)headViewWithData:(id)data{
+    self.luheadpic.image = [UIImage imageNamed:@"Rectangle"];
+    self.branchNm.text = @"山东省总行";
+    self.pointpraiseNo.text = @"100";
+    self.comprehensiveNu.text = @"当前排名 90";
+    self.dynamicNuLab.text = @"发布动态\n80";
+    self.activityNuLab.text = @"发布活动\n70";
+    self.commentNoLab.text = @"评论\n20";
+    self.dContextLab.text = @"最新评论：【青岛银行年会活动成功举办。。】";
+//    self.topBackView.backgroundColor = [UIColor yellowColor];
+}
+-(UIView *)midView{
+    if (_midView == nil) {
+        _midView = [[UIView alloc]init];
+//        _midView.backgroundColor = [UIColor lightGrayColor];
+    }
+    return _midView;
+}
+- (UIView*)lineView{
+    if (_lineView == nil) {
+        _lineView = [[UIView alloc]init];
+        _lineView.backgroundColor = [UIColor colorWithHexString:@"#F7F7F7"];
+    }
+    return _lineView;
 }
 //头像
 -(UIImageView *)luheadpic{
@@ -94,6 +177,9 @@
 -(UILabel *)pointpraiseNo{
     if (_pointpraiseNo == nil) {
         _pointpraiseNo = [[UILabel alloc]init];
+        _pointpraiseNo.font = [UIFont fontWithName:@"PingFang-SC-Medium" size: 10];
+        _pointpraiseNo.textColor = [UIColor whiteColor];
+        
     }
     return _pointpraiseNo;
 }
@@ -111,6 +197,9 @@
 - (UILabel*)comprehensiveNu{
     if (_comprehensiveNu == nil) {
         _comprehensiveNu = [[UILabel alloc]init];
+        _comprehensiveNu.font = [UIFont fontWithName:@"PingFang-SC-Medium" size: 15];
+        _comprehensiveNu.textColor = [UIColor colorWithHexString:@"#4a4a4a"];
+        _comprehensiveNu.textAlignment = NSTextAlignmentCenter;
     }
     return _comprehensiveNu;
 }
@@ -118,6 +207,9 @@
 - (UILabel*)dynamicNuLab{
     if (_dynamicNuLab == nil) {
         _dynamicNuLab = [[UILabel alloc]init];
+        _dynamicNuLab.numberOfLines = 0;
+        _dynamicNuLab.textAlignment = NSTextAlignmentCenter;
+        _dynamicNuLab.font = [UIFont fontWithName:@"PingFangSC-Regular" size:12];
     }
     return _dynamicNuLab;
 }
@@ -125,6 +217,9 @@
 - (UILabel*)activityNuLab{
     if (_activityNuLab == nil) {
         _activityNuLab = [[UILabel alloc]init];
+        _activityNuLab.numberOfLines = 0;
+        _activityNuLab.textAlignment = NSTextAlignmentCenter;
+        _activityNuLab.font = [UIFont fontWithName:@"PingFangSC-Regular" size:12];
     }
     return _activityNuLab;
 }
@@ -132,6 +227,9 @@
 - (UILabel*)commentNoLab{
     if (_commentNoLab==nil) {
         _commentNoLab = [[UILabel alloc]init];
+        _commentNoLab.numberOfLines = 0;
+        _commentNoLab.textAlignment = NSTextAlignmentCenter;
+        _commentNoLab.font = [UIFont fontWithName:@"PingFangSC-Regular" size: 12];
     }
     return _commentNoLab;
 }
@@ -139,18 +237,17 @@
 - (UILabel*)dContextLab{
     if (_dContextLab ==nil) {
         _dContextLab = [[UILabel alloc]init];
+        _dContextLab.textAlignment = NSTextAlignmentCenter;
+        _dContextLab.font = [UIFont fontWithName:@"PingFangSC-Regular" size: 12];
     }
     return _dContextLab;
 }
 
-- (void)headViewWithData:(id)data{
-    self.luheadpic.image = [UIImage imageNamed:@"Rectangle"];
-    self.branchNm.text = @"山东省总行";
-//    self.topBackView.backgroundColor = [UIColor yellowColor];
-}
+
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
+//绘制中间的框
 - (void)drawRect:(CGRect)rect {
     [[UIColor colorWithHexString:@"#F9F9F9"] setFill];
     UIRectFill(rect);

@@ -245,6 +245,8 @@
         _joinButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_joinButton setTitle:@"立即参与" forState:UIControlStateNormal];
         [_joinButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        _joinButton.layer.cornerRadius = 5;
+        _joinButton.layer.masksToBounds = YES;
         [_joinButton setBackgroundColor:[UIColor colorWithRed:238/255.0 green:54/255.0 blue:75/255.0 alpha:1]];
         [_joinButton addTarget:self action:@selector(didClickShareBtn:) forControlEvents:UIControlEventTouchUpInside];
     }

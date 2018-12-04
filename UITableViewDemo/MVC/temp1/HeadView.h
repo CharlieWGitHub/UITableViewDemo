@@ -18,10 +18,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic ,strong)UIView  * pointpraiseBackView;//点赞背景view
 @property (nonatomic ,strong)UILabel * pointpraiseNo;//点赞数
 
+@property (nonatomic ,strong)UIView  * midView;//中间的view
 @property (nonatomic ,strong)UILabel * activityNuLab;//发布活动数量
 @property (nonatomic ,strong)UILabel * commentNoLab;//评论数量
 @property (nonatomic ,strong)UILabel * dynamicNuLab;//发布文章数量
+
+@property (nonatomic ,strong)UIView * lineView;//bottomview;
 @property (nonatomic ,strong)UILabel * dContextLab;//最新动态
+
 @property (nonatomic ,strong)UILabel * comprehensiveNu;//当前排名
 
 

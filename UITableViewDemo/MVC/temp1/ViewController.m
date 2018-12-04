@@ -82,6 +82,14 @@ static NSString * const DYNAMICCELL = @"dynamicCell";//动态
         
     }];
     
+    self.dataSource = [[JTDataSource alloc]initWithIdentifier:DYNAMICCELL configureBlock:^(DynamicCellTableViewCell * cell, CellModel * model, NSIndexPath *indexPath) {
+        cell.dLuheadpic.image = [UIImage imageNamed:@"Rectangle"];
+        cell.dBranchNm.text = @"总行营业部";
+        cell.dTxTm.text = @"2018-09-09";
+        cell.dContext.text = @"其实Masonry封装的API和苹果官方的思路是非常一致的，如果你经常用storyBoard或者Xib来自动布局的话，上手Masonry应该是很容易的。";
+        
+    }];
+    
     [self.headView headViewWithData:@{}];
     self.myTab.tableHeaderView = self.headView;
     self.myTab.dataSource = self.dataSource;
@@ -105,10 +113,70 @@ static NSString * const DYNAMICCELL = @"dynamicCell";//动态
         _myTab.estimatedRowHeight = 0;
         _myTab.estimatedSectionFooterHeight = 0;
         _myTab.estimatedSectionHeaderHeight = 0;
-//        [_myTab registerClass:[DynamicCellTableViewCell class] forCellReuseIdentifier:DYNAMICCELL];
-        [_myTab registerClass:[ActivityCellTableViewCell class] forCellReuseIdentifier:ACTIVITYCELL];
+        [_myTab registerClass:[DynamicCellTableViewCell class] forCellReuseIdentifier:DYNAMICCELL];
+//        [_myTab registerClass:[ActivityCellTableViewCell class] forCellReuseIdentifier:ACTIVITYCELL];
     }
     return _myTab;
+}
+- (void)loadDataA{
+    
+    NSArray * activityDynamics = @[@{
+                              @"type":@"Dynamic",
+                              @"pointpraiseNo":@"2",
+                              @"good":@"1",
+                              @"dTxTm":@"1543821703000",
+                              @"dPictureAdr":@[@"https://img2.woyaogexing.com/2018/11/17/e331f58066c74aeb87f49e01fa6e9817!400x400.jpeg",@"https://img2.woyaogexing.com/2018/11/17/15224e46911348b3ac51bcc0c2fe5988!400x400.jpeg",@"https://img2.woyaogexing.com/2018/11/17/961bb159dae847698907c12368500e82!400x400.jpeg",@"https://img2.woyaogexing.com/2018/11/17/be075b12e5244c868796bef070cfe484!400x400.jpeg",@"https://img2.woyaogexing.com/2018/11/17/9a3579d1558f416db643ef58de8caffa!400x400.jpeg",@"https://img2.woyaogexing.com/2018/11/17/81818c9ba02948c79eafa49e74337617!400x400.jpeg",@"https://img2.woyaogexing.com/2018/11/16/480032466db54a7bbaa14e654dfa2a0c!400x400.jpeg",@"https://img2.woyaogexing.com/2018/11/16/fa2c549de378405d9220bc5c36c806fd!400x400.jpeg"],
+                              @"dLuuserdId":@"ZM001",
+                              @"dLuheadpic":@"",
+                              @"dId":@"174",
+                              @"dContext":@"Masonry源码链接：Masonry,如果你项目使用Swift，建议你使用SnapKit",
+                              @"dContacts":@"@importMasonry.h",
+                              @"dCommentIf":@"0",
+                              @"dBranchNo":@"820181203",
+                              @"dBranchNm":@"如何使用Masonry",
+                              @"commentNo":@"2",
+                              @"comments":@[@{
+                                                @"activityId":@"",
+                                                @"branchNm":@"建议你使用SnapKit",
+                                                @"branchNo":@"810000000",
+                                                @"context":@"使用前导入Masonry库",
+                                                @"dynamicId":@"174",
+                                                @"id":@"284",
+                                                @"ludelete":@"1",
+                                                @"luheadpic":@"",
+                                                @"luuserid":@"sd001",
+                                                @"luusername":@"sd001",
+                                                @"orgCode":@"0",
+                                                @"positionId":@"0",
+                                                @"targetUser":@"810000000",
+                                                @"targetUserId":@"",
+                                                @"title":@"",
+                                                @"txTm":@"1543902541"
+                                                },@{
+                                                @"activityId":@"",
+                                                @"branchNm":@"Masonry如何约束宽高相等",
+                                                @"branchNo":@"810000000",
+                                                @"context":@"使用前导入Masonry库",
+                                                @"dynamicId":@"174",
+                                                @"id":@"284",
+                                                @"ludelete":@"1",
+                                                @"luheadpic":@"",
+                                                @"luuserid":@"sd001",
+                                                @"luusername":@"sd001",
+                                                @"orgCode":@"0",
+                                                @"positionId":@"0",
+                                                @"targetUser":@"810000000",
+                                                @"targetUserId":@"",
+                                                @"title":@"",
+                                                @"txTm":@"1543902541"
+                                                }]
+                              }];
+    
+    NSLog(@"--%@",activityDynamics);
+    self.dataArray = [NSMutableArray arrayWithArray:[CellModel mj_objectArrayWithKeyValuesArray:activityDynamics]];
+    [self.dataSource addDataArray:self.dataArray];
+    
+
 }
 - (void)loadNewData{
    
