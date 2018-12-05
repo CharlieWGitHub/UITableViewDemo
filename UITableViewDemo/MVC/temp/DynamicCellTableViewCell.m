@@ -11,6 +11,7 @@
 @implementation DynamicCellTableViewCell
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self == [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        
         self.backgroundColor = [UIColor colorWithHexString:@"#F9F9F9"];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self setupUI];
@@ -46,7 +47,7 @@
     }];
     [self.midView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(weakSelf);
-        make.height.mas_equalTo(SCREEN_WIDTH/3);
+        make.height.mas_equalTo((SCREEN_WIDTH/3+10)*3+20 );
         make.top.equalTo(weakSelf.topView.mas_bottom);
     }];
     [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -94,7 +95,11 @@
         make.size.mas_equalTo(CGSizeMake(40, 25));
     }];
 //  中间布局视图
-    [self.midView addSubview:self.picImg];
+//    [self.midView addSubview:self.picImg];
+//    [self.picImg mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.top.equalTo(weakSelf.midView).offset(10);
+//        make.size.mas_equalTo(CGSizeMake((SCREEN_WIDTH-40)/3, (SCREEN_WIDTH-40)/3));
+//    }];
 //    下面布局
     [self.bottomView addSubview:self.lineView];
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -127,6 +132,7 @@
     
 //    评论view
     [self.bottomView addSubview:self.commentView];
+  
     [self.commentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(weakSelf.bottomView);
         make.top.equalTo(weakSelf.lineView.mas_bottom).offset(40);
@@ -147,6 +153,89 @@
         make.right.equalTo(weakSelf.commentView).offset(-10);
         make.size.mas_equalTo(CGSizeMake(40, 20));
     }];
+    
+}
+- (void)setCellContentWithModel:(CellModel*)model{
+   
+    [self.dLuheadpic yy_setImageWithURL:[NSURL URLWithString:model.dLuheadpic] options:YYWebImageOptionProgressive];
+    self.dBranchNm.text = model.dBranchNm;
+    self.dTxTm.text  = model.dTxTm;
+    self.dContext.text = model.dContext;
+//  布局图片
+    WEAK_SELF;
+    [self.midView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(weakSelf);
+        make.height.mas_equalTo((SCREEN_WIDTH/3+10)*2);
+        make.top.equalTo(weakSelf.topView.mas_bottom);
+    }];
+    [self.midView setNeedsUpdateConstraints];
+    [self.midView updateConstraintsIfNeeded];
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.midView layoutIfNeeded];
+    }];
+    __block UIImageView *lastView = nil;
+    // 间距为10
+    int intes = 10;
+    // 每行3个
+    int num = 3;
+    for (int i = 0; i < 4; i++) {
+        self.picImg = [UIImageView new];
+        self.picImg.image = [UIImage imageNamed:@"Rectangle"];
+        [self.midView addSubview:self.picImg];        
+        // 添加约束
+        [self.picImg mas_makeConstraints:^(MASConstraintMaker *make) {
+            // 给个高度约束
+            make.height.mas_equalTo((SCREEN_WIDTH-40)/3);
+            
+            // 1. 判断是否存在上一个view
+            if (lastView) {
+                // 存在的话宽度与上一个宽度相同
+                make.width.equalTo(lastView);
+            } else {
+                // 否则计算宽度  ！！！此处的判断条件是为了避免 最后一列约束冲突
+                /**
+                 *  这里可能大家会问 为什么上面我说最后一列会有冲突？
+                 *  如果不添加判断的话会造成：
+                 *  1添加了宽度约束 2所有列加了左侧约束 第3步给 最后一列添加了右侧约束
+                 *  这里最后一列既有左侧约束又有右侧约束还有宽度约束 会造成约束冲突
+                 *  所以这里添加宽度时将最后一列剔除
+                 */
+                if (i % num != 0) {
+                make.width.mas_equalTo((self.picImg.superview.frame.size.width - (num + 1)* intes)/4);
+                }
+            }
+            // 2. 判断是否是第一列
+            if (i % num == 0) {
+                // 一：是第一列时 添加左侧与父视图左侧约束
+                make.left.mas_equalTo(self.picImg.superview).offset(intes);
+            } else {
+                // 二： 不是第一列时 添加左侧与上个view左侧约束
+                make.left.mas_equalTo(lastView.mas_right).offset(intes);
+            }
+            // 3. 判断是否是最后一列 给最后一列添加与父视图右边约束
+            if (i % num == (num - 1)) {
+                make.right.mas_equalTo(self.picImg.superview).offset(-intes);
+            }
+            // 4. 判断是否为第一列
+            if (i / num == 0) {
+                // 第一列添加顶部约束
+                make.top.mas_equalTo(self.picImg.superview).offset(10);
+            } else {
+                // 其余添加顶部约束 intes*10 是我留出的距顶部高度
+                make.top.mas_equalTo(10 + ( i / num )* ((SCREEN_WIDTH-40)/3 + intes));
+            }
+            
+        }];
+        // 每次循环结束 此次的View为下次约束的基准
+        lastView = self.picImg;
+    }
+    
+//  是否点赞->good  数量->pointpraiseNo
+    [self.pointpraiseNoBtn setTitle:model.pointpraiseNo forState:UIControlStateNormal];
+//  是否评论 数量
+    [self.commentNoBtn setTitle:model.commentNo forState:UIControlStateNormal];
+//  布局评论
+    
     
     
 }
@@ -205,19 +294,24 @@
     if (_isShowBtn == nil) {
         _isShowBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_isShowBtn setTitle:@"展示" forState:UIControlStateNormal];
+        [_isShowBtn setTitle:@"收起" forState:UIControlStateSelected];
+        _isShowBtn.selected = NO;
         [_isShowBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
         _isShowBtn.titleLabel.font = [UIFont fontWithName:@"PingFang-SC-Medium" size: 16];
+        [_isShowBtn addTarget:self action:@selector(isShowBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _isShowBtn;
 }
 
 //second
-- (UIImageView *)picImg{
-    if(_picImg == nil ){
-        _picImg = [[UIImageView alloc]init];
-    }
-    return _picImg;
-}
+//- (UIImageView *)picImg{
+//    if(_picImg == nil ){
+//        _picImg = [[UIImageView alloc]init];
+//        _picImg.image = [UIImage imageNamed:@"Rectangle"];
+//        _picImg.contentMode = UIViewContentModeScaleAspectFill;
+//    }
+//    return _picImg;
+//}
 //bottom
 -(UIView *)lineView{
     if (_lineView == nil) {
@@ -231,7 +325,7 @@
     if (_shareBtn==nil) {
         _shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_shareBtn setImage:[UIImage imageNamed:@"activityShare"] forState:UIControlStateNormal];
-        
+        [_shareBtn addTarget:self action:@selector(shareBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _shareBtn;
 }
@@ -243,6 +337,7 @@
         [_pointpraiseNoBtn setTitle:@"200" forState:UIControlStateNormal];
         _pointpraiseNoBtn.titleLabel.font = [UIFont fontWithName:@"PingFang-SC-Medium" size: 14];
         [_pointpraiseNoBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_pointpraiseNoBtn addTarget:self action:@selector(pointPraiseBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _pointpraiseNoBtn;
 }
@@ -255,6 +350,7 @@
         [_commentNoBtn setTitle:@"120" forState:UIControlStateNormal];
         _commentNoBtn.titleLabel.font = [UIFont fontWithName:@"PingFang-SC-Medium" size: 14];
         [_commentNoBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_commentNoBtn addTarget:self action:@selector(pushCommentBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _commentNoBtn;
 }
@@ -280,10 +376,37 @@
         [_commentDelBtn setTitle:@"删除" forState:UIControlStateNormal];
         [_commentDelBtn setTitleColor:[UIColor colorWithHexString:@"#678BB5"] forState:UIControlStateNormal];
         _commentDelBtn.titleLabel.font = [UIFont fontWithName:@"PingFang-SC-Medium" size: 14];
+        [_commentDelBtn addTarget:self action:@selector(deleteCommentForRow:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _commentDelBtn;
 }
 
+//分享
+- (void)shareBtnClicked:(id)sender{
+    NSLog(@"分享");
+    
+}
+//评论
+- (void)pushCommentBtnClick:(id)sender{
+    NSLog(@"评论");
+    
+}
+//点赞
+-(void)pointPraiseBtnClick:(id)sender{
+    NSLog(@"点赞");
+    
+}
+//删除评论
+- (void)deleteCommentForRow:(id)sender{
+    NSLog(@"删除");
+    
+}
+- (void)isShowBtnClicked:(UIButton*)sender{
+    // 更新约束
+    self.isShowBtn.selected =! self.isShowBtn.selected;
+    
+    
+}
 - (void)awakeFromNib {
     [super awakeFromNib];
     

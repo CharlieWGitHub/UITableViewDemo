@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CellModel.h"
 
 typedef void (^CellConfigureBefore)(id cell, id model, NSIndexPath * indexPath);
 
@@ -21,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (id)initWithIdentifier:(NSString *)identifier configureBlock:(CellConfigureBefore)before;
 
 //sb
-@property (nonatomic, strong) IBInspectable NSString *cellIdentifier;
+@property (nonatomic, strong)NSString *cellIdentifier;
 
 @property (nonatomic, copy) CellConfigureBefore cellConfigureBefore;
 

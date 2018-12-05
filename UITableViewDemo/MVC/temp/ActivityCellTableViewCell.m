@@ -112,6 +112,18 @@
         make.top.equalTo(weakSelf.activityAddrss.mas_bottom).offset(5);
         make.size.mas_equalTo(CGSizeMake(96, 30));
     }];
+}
+
+- (void)setCellContentWithModel:(CellModel*)model{
+   
+    [self.headImage yy_setImageWithURL:[NSURL URLWithString:model.dLuheadpic] options:YYWebImageOptionProgressive];
+    self.bankName.text = model.aBranchaNm;
+    self.publishTime.text = model.dTxTm;
+    [self.activityImage yy_setImageWithURL:[NSURL URLWithString:model.aPctureadr] options:YYWebImageOptionProgressive];
+    self.activityName.text = model.aTitle;
+    self.activityTime.text = model.activityKtm ;//activityJtm 俩时间拼接
+    self.activityAddrss.text = model.activityPlace;
+    self.activityTag.text  = model.activityTy;
     
 }
 - (void)drawRect:(CGRect)rect{
@@ -171,7 +183,6 @@
         _activityImage.contentMode = UIViewContentModeScaleAspectFill;
         _activityImage.clipsToBounds = YES;
 //        _activityImage.backgroundColor = [UIColor lightGrayColor];
-        
     }
     return _activityImage;
 }

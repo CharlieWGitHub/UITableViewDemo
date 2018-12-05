@@ -10,9 +10,25 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Present : NSObject
+@protocol clPresenterDelegate <NSObject>
 
-@property (nonatomic ,strong) NSMutableArray * dataArray;
+@optional
+/*
+ * 动态cell的一些处理
+ */
+//展开当前的cell
+- (void)didClickIsShow:(NSIndexPath*)indexPath;
+
+
+//刷新数据
+- (void)reloadNewData;
+
+@end
+
+@interface Present : NSObject<clPresenterDelegate>
+
+@property (nonatomic ,strong)NSMutableArray * dataArray;
+@property (nonatomic ,weak) id<clPresenterDelegate>delegate;
 
 @end
 

@@ -12,10 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CellModel : NSObject
 
-@property (nonatomic ,copy) NSString * headImage;//头像
-@property (nonatomic ,copy) NSString * bankName;//银行名称
-@property (nonatomic ,copy) NSString * publishTime;//发布时间
-@property (nonatomic ,copy) NSString * activityImage;//活动图片
+//@property (nonatomic ,copy) NSString * headImage;//头像
+//@property (nonatomic ,copy) NSString * bankName;//银行名称
+//@property (nonatomic ,copy) NSString * publishTime;//发布时间
+//@property (nonatomic ,copy) NSString * activityImage;//活动图片
 
 //动态字段
 @property (nonatomic ,copy) NSString * commentNo;//
@@ -28,9 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic ,copy) NSString * dLuheadpic;//
 @property (nonatomic ,copy) NSString * dLuuserdId;//
 @property (nonatomic ,copy) NSString * dTxTm;//
-
 @property (nonatomic ,copy) NSString * good;//
 @property (nonatomic ,copy) NSString * pointpraiseNo;//
+@property (nonatomic ,copy) NSArray  * dPictureAdr;//
 
 
 //活动字段
@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic ,copy) NSString * activityOther;//
 @property (nonatomic ,copy) NSString * activityPe;//
 @property (nonatomic ,copy) NSString * activityPlace;//
-@property (nonatomic ,copy) NSString * activityTy;//
+@property (nonatomic ,copy) NSString * activityTy;//biaoqian
 //@property (nonatomic ,copy) NSString * dTxTm;//
 @property (nonatomic ,copy) NSString * type;//
 

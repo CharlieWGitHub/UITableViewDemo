@@ -8,11 +8,13 @@
 //
 
 #import "JTDataSource.h"
-
+#import "ActivityCellTableViewCell.h"
+#import "DynamicCellTableViewCell.h"
 @implementation JTDataSource
 
 - (id)initWithIdentifier:(NSString *)identifier configureBlock:(CellConfigureBefore)before {
     if(self = [super init]) {
+        NSLog(@"=-=%@",identifier);
         _cellIdentifier = identifier;
         _cellConfigureBefore = [before copy];
     }
@@ -36,7 +38,26 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+//    CellModel * model = [self modelsAtIndexPath:indexPath];
+//    NSString * iden = [model.type isEqualToString:@"Activity"]?@"activityCell":@"dynamicCell";
+//    NSLog(@"id = %@",iden);
+//
+//    if ([model.type isEqualToString:@"Activity"]) {
+//        ActivityCellTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:iden forIndexPath:indexPath];
+//        if(self.cellConfigureBefore) {
+//            self.cellConfigureBefore(cell, model,indexPath);
+//        }
+//        return cell;
+//    } else {
+//
+//        DynamicCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:iden forIndexPath:indexPath];
+//        if(self.cellConfigureBefore) {
+//            self.cellConfigureBefore(cell, model,indexPath);
+//        }
+//        return cell;
+//    }
+//    NSLog(@"==%@====%ld",self.cellIdentifier,indexPath.row);
+//
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier forIndexPath:indexPath];
     id model = [self modelsAtIndexPath:indexPath];
     if(self.cellConfigureBefore) {

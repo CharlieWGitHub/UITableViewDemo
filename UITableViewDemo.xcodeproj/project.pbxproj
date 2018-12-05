@@ -374,6 +374,16 @@
 		E99143D721B4CA68005D5FE3 /* temp */ = {
 			isa = PBXGroup;
 			children = (
+				E9F79E7C21AAB588007F52F7 /* HeadView.h */,
+				E9F79E7D21AAB588007F52F7 /* HeadView.m */,
+				E92490F821AE962700AF83E6 /* CellModel.h */,
+				E92490F921AE962700AF83E6 /* CellModel.m */,
+				E9F79E7621AAB3EB007F52F7 /* ActivityCellTableViewCell.h */,
+				E9F79E7721AAB3EB007F52F7 /* ActivityCellTableViewCell.m */,
+				E9F79E7921AAB401007F52F7 /* DynamicCellTableViewCell.h */,
+				E9F79E7A21AAB401007F52F7 /* DynamicCellTableViewCell.m */,
+				E9326D4D219BBA7300C547FD /* ViewController.h */,
+				E9326D4E219BBA7300C547FD /* ViewController.m */,
 			);
 			path = temp;
 			sourceTree = "<group>";
@@ -381,20 +391,10 @@
 		E99143D821B4CA72005D5FE3 /* temp1 */ = {
 			isa = PBXGroup;
 			children = (
-				E9326D4D219BBA7300C547FD /* ViewController.h */,
-				E9326D4E219BBA7300C547FD /* ViewController.m */,
-				E9F79E7C21AAB588007F52F7 /* HeadView.h */,
-				E9F79E7D21AAB588007F52F7 /* HeadView.m */,
 				E92490F521AE956800AF83E6 /* Present.h */,
 				E92490F621AE956800AF83E6 /* Present.m */,
-				E92490F821AE962700AF83E6 /* CellModel.h */,
-				E92490F921AE962700AF83E6 /* CellModel.m */,
 				E92490F221AD1F9800AF83E6 /* JTDataSource.h */,
 				E92490F321AD1F9800AF83E6 /* JTDataSource.m */,
-				E9F79E7621AAB3EB007F52F7 /* ActivityCellTableViewCell.h */,
-				E9F79E7721AAB3EB007F52F7 /* ActivityCellTableViewCell.m */,
-				E9F79E7921AAB401007F52F7 /* DynamicCellTableViewCell.h */,
-				E9F79E7A21AAB401007F52F7 /* DynamicCellTableViewCell.m */,
 				E9F79E7321AAAB9B007F52F7 /* JTJGHandle.h */,
 				E9F79E7421AAAB9B007F52F7 /* JTJGHandle.m */,
 			);

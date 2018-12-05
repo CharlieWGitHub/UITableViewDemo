@@ -36,10 +36,22 @@
 - (IBAction)beginExit:(id)sender {
     // 清空缓存
     YYImageCache *cache = [YYWebImageManager sharedManager].cache;
-
     [cache.memoryCache removeAllObjects];
     [cache.diskCache removeAllObjects];
-
+  
+//  count -1
+    NSInteger count1 = 0/3;
+    NSInteger count2 = 1/3;
+    NSInteger count3 = 2/3;
+    
+    NSInteger count4 = 3/3;
+    NSInteger count5 = 4/3;
+    NSInteger count6 = 5/3;
+    
+    NSInteger count7 = 6/3;
+    NSInteger count8 = 7/3;
+    NSInteger count9 = 8/3;
+    NSLog(@"%ld%ld%ld\n%ld%ld%ld\n%ld%ld%ld",(long)count1,(long)count2,(long)count3,(long)count4,(long)count5,(long)count6,(long)count7,(long)count8,(long)count9);
 //
 //    [[JTUserInfoTool shareInstance]removeTokenFromSanbox];
 //
