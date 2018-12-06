@@ -287,6 +287,37 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		E957CE6721B9273900210524 /* VIEW */ = {
+			isa = PBXGroup;
+			children = (
+				E9F79E7621AAB3EB007F52F7 /* ActivityCellTableViewCell.h */,
+				E9F79E7721AAB3EB007F52F7 /* ActivityCellTableViewCell.m */,
+				E9F79E7921AAB401007F52F7 /* DynamicCellTableViewCell.h */,
+				E9F79E7A21AAB401007F52F7 /* DynamicCellTableViewCell.m */,
+				E9F79E7C21AAB588007F52F7 /* HeadView.h */,
+				E9F79E7D21AAB588007F52F7 /* HeadView.m */,
+			);
+			path = VIEW;
+			sourceTree = "<group>";
+		};
+		E957CE6821B9273D00210524 /* MODEL */ = {
+			isa = PBXGroup;
+			children = (
+				E92490F821AE962700AF83E6 /* CellModel.h */,
+				E92490F921AE962700AF83E6 /* CellModel.m */,
+			);
+			path = MODEL;
+			sourceTree = "<group>";
+		};
+		E957CE6921B9274000210524 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				E9326D4D219BBA7300C547FD /* ViewController.h */,
+				E9326D4E219BBA7300C547FD /* ViewController.m */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
 		E9613B1121A7F866006EAC81 /* LoginHnadle */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,16 +418,9 @@
 		E99143D721B4CA68005D5FE3 /* temp */ = {
 			isa = PBXGroup;
 			children = (
-				E9F79E7C21AAB588007F52F7 /* HeadView.h */,
-				E9F79E7D21AAB588007F52F7 /* HeadView.m */,
-				E92490F821AE962700AF83E6 /* CellModel.h */,
-				E92490F921AE962700AF83E6 /* CellModel.m */,
-				E9F79E7621AAB3EB007F52F7 /* ActivityCellTableViewCell.h */,
-				E9F79E7721AAB3EB007F52F7 /* ActivityCellTableViewCell.m */,
-				E9F79E7921AAB401007F52F7 /* DynamicCellTableViewCell.h */,
-				E9F79E7A21AAB401007F52F7 /* DynamicCellTableViewCell.m */,
-				E9326D4D219BBA7300C547FD /* ViewController.h */,
-				E9326D4E219BBA7300C547FD /* ViewController.m */,
+				E957CE6921B9274000210524 /* VC */,
+				E957CE6821B9273D00210524 /* MODEL */,
+				E957CE6721B9273900210524 /* VIEW */,
 			);
 			path = temp;
 			sourceTree = "<group>";
