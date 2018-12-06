@@ -7,6 +7,7 @@
 //
 
 #import "DynamicCellTableViewCell.h"
+#import "CustomLib.h"
 
 @implementation DynamicCellTableViewCell
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -42,8 +43,9 @@
     [self addSubview:self.midView];
     [self addSubview:self.bottomView];
     [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.top.equalTo(weakSelf);
-        make.height.mas_equalTo(200);
+        make.left.right.equalTo(weakSelf);
+        make.top.equalTo(weakSelf).offset(70);
+        make.height.mas_equalTo(120);
     }];
     [self.midView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(weakSelf);
@@ -56,37 +58,33 @@
         make.top.equalTo(weakSelf.midView.mas_bottom);
     }];
     
-    [self.topView addSubview:self.dLuheadpic];
+    [self addSubview:self.dLuheadpic];
     [self.dLuheadpic mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(weakSelf.topView).offset(16);
-        make.top.equalTo(weakSelf.topView).offset(16);
+        make.left.equalTo(weakSelf).offset(16);
+        make.top.equalTo(weakSelf).offset(16);
         make.size.mas_offset(CGSizeMake(48, 48));
     }];
     //银行名字
-    [self.topView addSubview:self.dBranchNm];
+    [self addSubview:self.dBranchNm];
     [self.dBranchNm mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(weakSelf.dLuheadpic.mas_right).offset(10);
-        make.top.equalTo(weakSelf.topView).offset(16);
-        make.right.equalTo(weakSelf.topView);
+        make.top.equalTo(weakSelf).offset(16);
+        make.right.equalTo(weakSelf);
         make.height.mas_equalTo(22);
         
     }];
-    [self.topView addSubview:self.dTxTm];
+    [self addSubview:self.dTxTm];
     [self.dTxTm mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(weakSelf.dLuheadpic.mas_right).offset(10);
-        make.top.equalTo(weakSelf.dBranchNm.mas_bottom).offset(10);
-        make.right.equalTo(weakSelf.topView);
+        make.top.equalTo(weakSelf.dBranchNm.mas_bottom).offset(5);
+        make.right.equalTo(weakSelf);
         make.height.mas_equalTo(20);
     }];
 //  内容
     [self.topView addSubview:self.dContext];
     [self.dContext mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.topView).offset(60);
-        make.left.equalTo(weakSelf).offset(10);
-        make.right.equalTo(weakSelf).offset(-10);
-        make.height.mas_equalTo(100);
+        make.edges.equalTo(weakSelf.topView).with.insets(UIEdgeInsetsMake(10, 10, 25, 10));
     }];
-    
 //  展示与否
     [self.topView addSubview:self.isShowBtn];
     [self.isShowBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -129,43 +127,34 @@
         make.right.equalTo(weakSelf.commentNoBtn.mas_left).offset(-10);
         make.size.mas_equalTo(CGSizeMake(50, 22));
     }];
-    
-//    评论view
-    [self.bottomView addSubview:self.commentView];
-  
-    [self.commentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(weakSelf.bottomView);
-        make.top.equalTo(weakSelf.lineView.mas_bottom).offset(40);
-        make.height.mas_equalTo(20);
-    }];
-    
-    [self.commentView addSubview:self.commentLab];
-    [self.commentView addSubview:self.commentDelBtn];
-    [self.commentLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(weakSelf.commentView).offset(10);
-        make.right.equalTo(weakSelf.commentDelBtn.mas_left).offset(-20);
-        make.height.mas_equalTo(20);
-        make.top.equalTo(weakSelf.commentView);
-    }];
-    [self.commentDelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(weakSelf.commentLab.mas_right).offset(10);
-        make.top.equalTo(weakSelf.commentView);
-        make.right.equalTo(weakSelf.commentView).offset(-10);
-        make.size.mas_equalTo(CGSizeMake(40, 20));
-    }];
+
     
 }
 - (void)setCellContentWithModel:(CellModel*)model{
-   
+//    model.getContextHeight;
+    WEAK_SELF;
     [self.dLuheadpic yy_setImageWithURL:[NSURL URLWithString:model.dLuheadpic] options:YYWebImageOptionProgressive];
     self.dBranchNm.text = model.dBranchNm;
-    self.dTxTm.text  = model.dTxTm;
+    self.dTxTm.text  = model.getDTxTm;
+    if (model.getContextHeight>120) {
+        [self.topView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.right.equalTo(weakSelf);
+            make.top.equalTo(weakSelf).offset(70);
+            make.height.mas_equalTo(model.getContextHeight+40);
+        }];
+        [self.topView setNeedsUpdateConstraints];
+        [self.topView updateConstraintsIfNeeded];
+        [UIView animateWithDuration:0.3 animations:^{
+            [self.topView layoutIfNeeded];
+        }];
+        self.isShowBtn.hidden = NO;
+    }
     self.dContext.text = model.dContext;
+    
 //  布局图片
-    WEAK_SELF;
     [self.midView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(weakSelf);
-        make.height.mas_equalTo((SCREEN_WIDTH/3+10)*2);
+        make.height.mas_equalTo(model.getMidH);
         make.top.equalTo(weakSelf.topView.mas_bottom);
     }];
     [self.midView setNeedsUpdateConstraints];
@@ -178,9 +167,9 @@
     int intes = 10;
     // 每行3个
     int num = 3;
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < model.dPictureAdr.count; i++) {
         self.picImg = [UIImageView new];
-        self.picImg.image = [UIImage imageNamed:@"Rectangle"];
+        [self.picImg yy_setImageWithURL:[NSURL URLWithString:model.dPictureAdr[i]] options:YYWebImageOptionProgressive];
         [self.midView addSubview:self.picImg];        
         // 添加约束
         [self.picImg mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -210,7 +199,8 @@
                 make.left.mas_equalTo(self.picImg.superview).offset(intes);
             } else {
                 // 二： 不是第一列时 添加左侧与上个view左侧约束
-                make.left.mas_equalTo(lastView.mas_right).offset(intes);
+        
+make.left.mas_equalTo(lastView.mas_right).offset(intes);
             }
             // 3. 判断是否是最后一列 给最后一列添加与父视图右边约束
             if (i % num == (num - 1)) {
@@ -219,12 +209,11 @@
             // 4. 判断是否为第一列
             if (i / num == 0) {
                 // 第一列添加顶部约束
-                make.top.mas_equalTo(self.picImg.superview).offset(10);
+            make.top.mas_equalTo(self.picImg.superview).offset(10);
             } else {
                 // 其余添加顶部约束 intes*10 是我留出的距顶部高度
                 make.top.mas_equalTo(10 + ( i / num )* ((SCREEN_WIDTH-40)/3 + intes));
             }
-            
         }];
         // 每次循环结束 此次的View为下次约束的基准
         lastView = self.picImg;
@@ -234,10 +223,75 @@
     [self.pointpraiseNoBtn setTitle:model.pointpraiseNo forState:UIControlStateNormal];
 //  是否评论 数量
     [self.commentNoBtn setTitle:model.commentNo forState:UIControlStateNormal];
-//  布局评论
-    
-    
-    
+//  布局评论--保存到model里面最好把行高
+    [self.bottomView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(weakSelf);
+        make.height.mas_equalTo(model.getBottomH);
+        make.top.equalTo(weakSelf.midView.mas_bottom);
+    }];
+    [self.bottomView setNeedsUpdateConstraints];
+    [self.bottomView updateConstraintsIfNeeded];
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.bottomView layoutIfNeeded];
+    }];
+//  更新-高度
+// - comments 评论的数组
+    UIView *lastView2 = nil;
+    for (int i=0; i<model.comments.count; i++) {
+        self.commentView = [UIView new];
+        self.commentLab = [UILabel new];
+        self.commentDelBtn = [UIButton new];
+        [self.bottomView addSubview:self.commentView];
+        [self.commentView addSubview:self.commentLab];
+        [self.commentView addSubview:self.commentDelBtn];
+//        self.commentView.backgroundColor = [UIColor orangeColor];
+        [self.commentView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.and.right.equalTo(weakSelf.bottomView);
+            make.height.mas_equalTo(@(20));
+            if ( lastView2 )
+            {
+                make.top.mas_equalTo(lastView2.mas_bottom);
+            }
+            else
+            {
+                make.top.mas_equalTo(weakSelf.bottomView).offset(50);
+            }
+        }];
+        self.commentLab.font = [UIFont systemFontOfSize:14];
+        self.commentLab.textColor = [UIColor colorWithHexString:@"#4A4A4A"];
+        self.commentLab.attributedText = [CustomLib changeLabelWithColor:[NSString stringWithFormat:@"%@: %@",[model.comments[i] objectForKey:@"luusername"],[model.comments[i] objectForKey:@"context"]] colorText:[NSString stringWithFormat:@"%@",[model.comments[i]objectForKey:@"luusername"]] color:[UIColor colorWithHexString:@"#678BB5"]];
+      
+        [self.commentDelBtn setTitle:@"删除" forState:UIControlStateNormal];
+        [self.commentDelBtn setTitleColor:[UIColor colorWithHexString:@"#678BB5"] forState:UIControlStateNormal];
+        self.commentDelBtn.titleLabel.font = [UIFont fontWithName:@"PingFang-SC-Medium" size: 14];
+        [self.commentDelBtn addTarget:self action:@selector(deleteCommentForRow:) forControlEvents:UIControlEventTouchUpInside];
+
+        [self.commentLab mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(weakSelf.commentView).offset(10);
+            make.right.equalTo(weakSelf.commentDelBtn.mas_left).offset(-20);
+            make.height.mas_equalTo(20);
+            make.top.equalTo(weakSelf.commentView);
+        }];
+       
+        [self.commentDelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            //        make.left.equalTo(weakSelf.commentLab.mas_right).offset(10);
+            make.top.equalTo(weakSelf.commentView);
+            make.right.equalTo(weakSelf.commentView).offset(-10);
+            make.size.mas_equalTo(CGSizeMake(40, 20));
+        }];
+      lastView2 = self.commentView;
+    }
+    if (model.comments.count>0) {
+        [self.bottomView addSubview:self.lookMoreBtn];
+        NSString * title = [NSString stringWithFormat:@"查看全部 %@ 条评论",model.commentNo];
+        [self.lookMoreBtn setTitle:title forState:UIControlStateNormal];
+//        self.lookMoreBtn .backgroundColor = [UIColor lightGrayColor];
+        [self.lookMoreBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(weakSelf.bottomView).offset(5);
+            make.top.equalTo(weakSelf.commentView.mas_bottom);
+            make.size.mas_equalTo(CGSizeMake(130, 20));
+        }];
+    }
 }
 //三部分
 - (UIView *)topView{
@@ -261,6 +315,16 @@
     }
     return _bottomView;
 }
+- (UIButton *)lookMoreBtn{
+    if (_lookMoreBtn ==nil) {
+        _lookMoreBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_lookMoreBtn setTitle:@"查看所有评论" forState:UIControlStateSelected];
+        [_lookMoreBtn setTitleColor:[UIColor colorWithHexString:@"#678BB5"] forState:UIControlStateNormal];
+        _lookMoreBtn.titleLabel.font = [UIFont fontWithName:@"PingFang-SC-Medium" size: 14];
+        [_lookMoreBtn addTarget:self action:@selector(isShowBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _lookMoreBtn;
+}
 -(UIImageView *)dLuheadpic{
     if (_dLuheadpic == nil) {
         _dLuheadpic = [[UIImageView alloc]init];
@@ -278,6 +342,8 @@
 - (UILabel*)dTxTm{
     if (_dTxTm == nil) {
         _dTxTm = [[UILabel alloc]init];
+        _dTxTm.textColor = [UIColor colorWithHexString:@"#678BB5"];
+        _dTxTm.font = [UIFont fontWithName:@"PingFang-SC-Medium" size: 14];
     }
     return _dTxTm;
 }
@@ -299,6 +365,7 @@
         [_isShowBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
         _isShowBtn.titleLabel.font = [UIFont fontWithName:@"PingFang-SC-Medium" size: 16];
         [_isShowBtn addTarget:self action:@selector(isShowBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+        _isShowBtn.hidden = YES;
     }
     return _isShowBtn;
 }

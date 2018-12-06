@@ -118,7 +118,7 @@
    
     [self.headImage yy_setImageWithURL:[NSURL URLWithString:model.dLuheadpic] options:YYWebImageOptionProgressive];
     self.bankName.text = model.aBranchaNm;
-    self.publishTime.text = model.dTxTm;
+    self.publishTime.text = model.getDTxTm;
     [self.activityImage yy_setImageWithURL:[NSURL URLWithString:model.aPctureadr] options:YYWebImageOptionProgressive];
     self.activityName.text = model.aTitle;
     self.activityTime.text = model.activityKtm ;//activityJtm 俩时间拼接
@@ -159,6 +159,8 @@
     if (_headImage ==nil) {
         _headImage = [[UIImageView alloc]init];
         _headImage.image = [UIImage imageNamed:@"Oval1"];
+        _headImage.layer.cornerRadius = 5;
+        _headImage.layer.masksToBounds = YES;
     }
     return _headImage;
 }

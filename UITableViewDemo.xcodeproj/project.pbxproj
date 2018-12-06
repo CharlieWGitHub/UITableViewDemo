@@ -26,6 +26,7 @@
 		E94ED62921A4EC9C00E93485 /* ReachabilityNetWorkUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E94ED62421A4EC9B00E93485 /* ReachabilityNetWorkUtils.m */; };
 		E94ED62A21A4EC9C00E93485 /* HttpRequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E94ED62621A4EC9C00E93485 /* HttpRequestTool.m */; };
 		E94ED63121A4EEE600E93485 /* CustomPublicHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E94ED63021A4EEE600E93485 /* CustomPublicHUD.m */; };
+		E957CE6621B8F3EB00210524 /* CustomLib.m in Sources */ = {isa = PBXBuildFile; fileRef = E957CE6521B8F3EB00210524 /* CustomLib.m */; };
 		E9613B0D21A7F624006EAC81 /* JTParamsBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9613B0C21A7F624006EAC81 /* JTParamsBaseModel.m */; };
 		E9613B1021A7F85F006EAC81 /* LoginHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = E9613B0F21A7F85F006EAC81 /* LoginHandle.m */; };
 		E98FB0B021A455340083E500 /* MVPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E98FB0AF21A455340083E500 /* MVPViewController.m */; };
@@ -105,6 +106,8 @@
 		E94ED63021A4EEE600E93485 /* CustomPublicHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPublicHUD.m; sourceTree = "<group>"; };
 		E94ED63221A4EFA400E93485 /* PublicConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicConfig.h; sourceTree = "<group>"; };
 		E94ED63321A4F05E00E93485 /* UIConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIConfig.h; sourceTree = "<group>"; };
+		E957CE6421B8F3EB00210524 /* CustomLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLib.h; sourceTree = "<group>"; };
+		E957CE6521B8F3EB00210524 /* CustomLib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLib.m; sourceTree = "<group>"; };
 		E9613B0B21A7F624006EAC81 /* JTParamsBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTParamsBaseModel.h; sourceTree = "<group>"; };
 		E9613B0C21A7F624006EAC81 /* JTParamsBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTParamsBaseModel.m; sourceTree = "<group>"; };
 		E9613B0E21A7F85F006EAC81 /* LoginHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginHandle.h; sourceTree = "<group>"; };
@@ -213,6 +216,7 @@
 		E9326D49219BBA7300C547FD /* UITableViewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				E957CE6321B8F3B300210524 /* Utils */,
 				E9BEA83E21A59AC700E8F827 /* Login */,
 				E94ED62E21A4EED500E93485 /* Other */,
 				E94ED62B21A4ECC900E93485 /* ConfigFiles */,
@@ -272,6 +276,15 @@
 				E94ED63021A4EEE600E93485 /* CustomPublicHUD.m */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		E957CE6321B8F3B300210524 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E957CE6421B8F3EB00210524 /* CustomLib.h */,
+				E957CE6521B8F3EB00210524 /* CustomLib.m */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		E9613B1121A7F866006EAC81 /* LoginHnadle */ = {
@@ -635,6 +648,7 @@
 			files = (
 				E9613B0D21A7F624006EAC81 /* JTParamsBaseModel.m in Sources */,
 				E94ED62A21A4EC9C00E93485 /* HttpRequestTool.m in Sources */,
+				E957CE6621B8F3EB00210524 /* CustomLib.m in Sources */,
 				E92490FD21AED1BF00AF83E6 /* UIColor+Extension.m in Sources */,
 				E9E697F321AF7A51002F4F20 /* UIImage+UIImageFillet.m in Sources */,
 				E9F79E7E21AAB588007F52F7 /* HeadView.m in Sources */,

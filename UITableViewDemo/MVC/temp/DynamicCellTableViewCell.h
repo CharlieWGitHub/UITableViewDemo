@@ -45,9 +45,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic ,strong) UIButton *commentNoBtn;//评论数目
 // 展示在一个view上
 @property (nonatomic ,strong) UIView * commentView;//评论view 包含评论人 评论 - 删除（自己发布的可以删除）
-@property (nonatomic ,strong) UILabel * commentLab;//评论
+@property (nonatomic ,strong) UILabel  * commentLab;//评论
 @property (nonatomic ,strong) UIButton * commentDelBtn;//删除按钮
-@property (nonatomic ,strong) NSArray *commentsArray;//动态评论数组
+@property (nonatomic ,strong) NSArray  * commentsArray;//动态评论数组
+@property (nonatomic ,strong) UIButton * lookMoreBtn;//删除按钮
 
 
 @property (nonatomic, strong) NSIndexPath * indexPath;
