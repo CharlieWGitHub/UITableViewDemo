@@ -32,7 +32,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic ,copy) NSString * pointpraiseNo;//
 @property (nonatomic ,copy) NSArray  * dPictureAdr;//
 
-
 //活动字段
 @property (nonatomic ,copy) NSString * aBranchNo;//
 @property (nonatomic ,copy) NSString * aBranchaNm;//
@@ -58,11 +57,12 @@ NS_ASSUME_NONNULL_BEGIN
 //@property (nonatomic ,copy) NSString * dTxTm;//
 @property (nonatomic ,copy) NSString * type;//
 
-
 @property (nonatomic ,assign) NSInteger showH;//计算展示的高度-文字超过限制的时候
 @property (nonatomic ,assign) NSInteger closeH;//关闭的时候的高度
 @property (nonatomic ,assign) NSInteger midH;//中间的布局图片的高度
 @property (nonatomic ,assign) NSInteger bottomH;//下面评论的高度
+
+@property (nonatomic ,assign) BOOL isShow;
 
 -(NSString * _Nonnull)getDTxTm;
 -(NSInteger)getContextHeight;

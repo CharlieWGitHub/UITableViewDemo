@@ -11,7 +11,20 @@
 #import "UIImageView+YYWebImage.h"
 #import "UIImage+YYWebImage.h"
 NS_ASSUME_NONNULL_BEGIN
+@protocol cDynamicCellDelegate <NSObject>
 
+//分享
+- (void)share;
+//收缩文字
+- (void)shrinkageContextWithIndexPat:(NSIndexPath*)indexPath;
+//点赞
+- (void)giveLike;
+//评论
+- (void)giveCommentary;
+//删除
+- (void)deleteComment;
+
+@end
 
 @interface DynamicCellTableViewCell : UITableViewCell
 
@@ -52,9 +65,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @property (nonatomic, strong) NSIndexPath * indexPath;
-//@property (nonatomic, weak  ) id<clPresenterDelegate> delegate;
 
-- (void)setCellContentWithModel:(CellModel*)model;
+@property (nonatomic, weak  ) id<cDynamicCellDelegate> delegate;
+
+- (void)setCellContentWithModel:(CellModel*)model WithIndexPat:(NSIndexPath*)indexPath;
 
 @end
 

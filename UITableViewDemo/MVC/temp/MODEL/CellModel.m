@@ -46,15 +46,19 @@
     if (self.dPictureAdr.count>0) {
         NSInteger cellRH = ((self.dPictureAdr.count - 1)/3 + 1) * (SCREEN_WIDTH-40)/3;
         return cellRH + 40;
+    }else{
+        return 10;
     }
-    return 10;
 }
 -(NSInteger)getBottomH{
     if (self.comments.count >0) {
-        NSInteger bottomH = self.comments.count * 25 + 30;
-        return bottomH + 60;
+//        动态条数 * 25 + 最后一条的高度
+        NSInteger bottomH = self.comments.count * 25 + 30 +42;
+        return bottomH;
+    }else{
+        return 60;
+        
     }
-    return 60;
 }
 
 @end
